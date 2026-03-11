@@ -1,0 +1,36 @@
+{
+  "exp_id": "DMF5_10mer_A0201",
+  "structures": [
+    {
+      "id": "3QDG",
+      "filename": "3QDG.trunc.fit.pdb",
+      "url": "/assets/pdb/3QDG.trunc.fit.pdb"
+    },
+    {
+      "id": "3QDJ",
+      "filename": "3QDJ.trunc.fit.pdb",
+      "url": "/assets/pdb/3QDJ.trunc.fit.pdb"
+    },
+    {
+      "id": "6AM5",
+      "filename": "6AM5.trunc.fit.pdb",
+      "url": "/assets/pdb/6AM5.trunc.fit.pdb"
+    },
+    {
+      "id": "6AMU",
+      "filename": "6AMU.trunc.fit.pdb",
+      "url": "/assets/pdb/6AMU.trunc.fit.pdb"
+    },
+    {
+      "id": "6D78",
+      "filename": "6D78.trunc.fit.pdb",
+      "url": "/assets/pdb/6D78.trunc.fit.pdb"
+    },
+    {
+      "id": "6DKP",
+      "filename": "6DKP.trunc.fit.pdb",
+      "url": "/assets/pdb/6DKP.trunc.fit.pdb"
+    }
+  ],
+  "generated_at": "2026-03-11T14:48:48"
+}

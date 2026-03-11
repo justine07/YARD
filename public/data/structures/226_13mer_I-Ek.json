@@ -1,0 +1,16 @@
+{
+  "exp_id": "226_13mer_I-Ek",
+  "structures": [
+    {
+      "id": "3QIU",
+      "filename": "3QIU.trunc.fit.pdb",
+      "url": "/assets/pdb/3QIU.trunc.fit.pdb"
+    },
+    {
+      "id": "3QIW",
+      "filename": "3QIW.trunc.fit.pdb",
+      "url": "/assets/pdb/3QIW.trunc.fit.pdb"
+    }
+  ],
+  "generated_at": "2026-03-11T14:48:11"
+}

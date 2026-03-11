@@ -1,0 +1,21 @@
+{
+  "exp_id": "AS4.3_9mer_B2705",
+  "structures": [
+    {
+      "id": "7N2P",
+      "filename": "7N2P.trunc.fit.pdb",
+      "url": "/assets/pdb/7N2P.trunc.fit.pdb"
+    },
+    {
+      "id": "7N2Q",
+      "filename": "7N2Q.trunc.fit.pdb",
+      "url": "/assets/pdb/7N2Q.trunc.fit.pdb"
+    },
+    {
+      "id": "7N2R",
+      "filename": "7N2R.trunc.fit.pdb",
+      "url": "/assets/pdb/7N2R.trunc.fit.pdb"
+    }
+  ],
+  "generated_at": "2026-03-11T14:48:05"
+}

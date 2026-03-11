@@ -1,0 +1,840 @@
+{
+  "exp": {
+    "exp_id": "AS3.1_9mer_B2705",
+    "tcr": "AS3.1",
+    "hla": "B27:05",
+    "peptide_length": 9,
+    "peptides_file": "uniques_stats_AS3.1.csv",
+    "trbv": "9",
+    "cdr3b": "CASSVGLYSTDTQYF",
+    "trbj": "2-3",
+    "trav": "21",
+    "cdr3a": "CAVSLGTGAGSYQLTF",
+    "traj": "28",
+    "total_peptides": 33839,
+    "round3_gt_0": 360,
+    "rounds": "1-4",
+    "first_author": "Yang",
+    "doi": "https://doi.org/10.1038/s41586-022-05501-7",
+    "counts_jsonl": "output/counts/AS3.1_9mer_B2705.jsonl",
+    "counts_rows": 33839,
+    "pdb_id": "7N2S",
+    "has_structure": true
+  },
+  "top50_r3": [
+    {
+      "peptide": "YRNGHVYPAR",
+      "naive": null,
+      "r1": 2,
+      "r2": 361,
+      "r3": 30175,
+      "r4": 38975
+    },
+    {
+      "peptide": "RRDWSYVQPK",
+      "naive": null,
+      "r1": 3,
+      "r2": 320,
+      "r3": 24124,
+      "r4": 34600
+    },
+    {
+      "peptide": "YRLGHVYPAK",
+      "naive": null,
+      "r1": 0,
+      "r2": 313,
+      "r3": 22248,
+      "r4": 22943
+    },
+    {
+      "peptide": "YRIGHAYPPR",
+      "naive": null,
+      "r1": 0,
+      "r2": 262,
+      "r3": 14049,
+      "r4": 12193
+    },
+    {
+      "peptide": "YRDGHTWIVR",
+      "naive": null,
+      "r1": 0,
+      "r2": 148,
+      "r3": 12396,
+      "r4": 14636
+    },
+    {
+      "peptide": "HRQPRISWVR",
+      "naive": null,
+      "r1": 0,
+      "r2": 191,
+      "r3": 11485,
+      "r4": 18005
+    },
+    {
+      "peptide": "KRFPRLPIPR",
+      "naive": null,
+      "r1": 8,
+      "r2": 456,
+      "r3": 10986,
+      "r4": 9764
+    },
+    {
+      "peptide": "ARRYHWVPSR",
+      "naive": null,
+      "r1": 0,
+      "r2": 179,
+      "r3": 10682,
+      "r4": 8014
+    },
+    {
+      "peptide": "YRLGHTYPAK",
+      "naive": null,
+      "r1": 0,
+      "r2": 115,
+      "r3": 10631,
+      "r4": 13770
+    },
+    {
+      "peptide": "KRDGWTEFAK",
+      "naive": null,
+      "r1": 2,
+      "r2": 138,
+      "r3": 8583,
+      "r4": 11039
+    },
+    {
+      "peptide": "YRTAHMPRLR",
+      "naive": null,
+      "r1": 0,
+      "r2": 207,
+      "r3": 7300,
+      "r4": 5279
+    },
+    {
+      "peptide": "KRFPRIDVAR",
+      "naive": null,
+      "r1": 1,
+      "r2": 92,
+      "r3": 4864,
+      "r4": 6260
+    },
+    {
+      "peptide": "YRLGHTYPER",
+      "naive": null,
+      "r1": 0,
+      "r2": 100,
+      "r3": 4514,
+      "r4": 4788
+    },
+    {
+      "peptide": "YRTAHHPRLK",
+      "naive": null,
+      "r1": 5,
+      "r2": 112,
+      "r3": 3484,
+      "r4": 3313
+    },
+    {
+      "peptide": "YRFPRISLTK",
+      "naive": null,
+      "r1": 1,
+      "r2": 73,
+      "r3": 3264,
+      "r4": 4232
+    },
+    {
+      "peptide": "GRDGWSEFPK",
+      "naive": null,
+      "r1": 2,
+      "r2": 63,
+      "r3": 3245,
+      "r4": 3367
+    },
+    {
+      "peptide": "YRFPRVRVTR",
+      "naive": null,
+      "r1": 0,
+      "r2": 49,
+      "r3": 2978,
+      "r4": 2664
+    },
+    {
+      "peptide": "VRLVDVEFPK",
+      "naive": null,
+      "r1": 0,
+      "r2": 34,
+      "r3": 2871,
+      "r4": 3935
+    },
+    {
+      "peptide": "WRAPRIDLSK",
+      "naive": null,
+      "r1": 0,
+      "r2": 65,
+      "r3": 2714,
+      "r4": 3558
+    },
+    {
+      "peptide": "YRMDWVPYGK",
+      "naive": null,
+      "r1": 0,
+      "r2": 68,
+      "r3": 2244,
+      "r4": 2488
+    },
+    {
+      "peptide": "YRRGHPETPK",
+      "naive": null,
+      "r1": 2,
+      "r2": 55,
+      "r3": 2053,
+      "r4": 1817
+    },
+    {
+      "peptide": "YRDGHSYPQR",
+      "naive": null,
+      "r1": 0,
+      "r2": 27,
+      "r3": 1802,
+      "r4": 2230
+    },
+    {
+      "peptide": "YREGHTLRLR",
+      "naive": null,
+      "r1": 0,
+      "r2": 48,
+      "r3": 1748,
+      "r4": 1695
+    },
+    {
+      "peptide": "YRLGHRYPDK",
+      "naive": null,
+      "r1": 1,
+      "r2": 43,
+      "r3": 1734,
+      "r4": 1672
+    },
+    {
+      "peptide": "SRVMLLAPRG",
+      "naive": null,
+      "r1": 0,
+      "r2": 41,
+      "r3": 1620,
+      "r4": 1742
+    },
+    {
+      "peptide": "QRWSFYKSLK",
+      "naive": null,
+      "r1": 0,
+      "r2": 55,
+      "r3": 1607,
+      "r4": 866
+    },
+    {
+      "peptide": "YRRGHRLTSK",
+      "naive": null,
+      "r1": 1,
+      "r2": 69,
+      "r3": 1558,
+      "r4": 955
+    },
+    {
+      "peptide": "YRSVHPRQRR",
+      "naive": null,
+      "r1": 0,
+      "r2": 37,
+      "r3": 1524,
+      "r4": 1568
+    },
+    {
+      "peptide": "YRFPRIQWCR",
+      "naive": null,
+      "r1": 0,
+      "r2": 33,
+      "r3": 1319,
+      "r4": 1111
+    },
+    {
+      "peptide": "YRRGHSLVPK",
+      "naive": null,
+      "r1": 1,
+      "r2": 36,
+      "r3": 1303,
+      "r4": 1076
+    },
+    {
+      "peptide": "ARDSMRTAKG",
+      "naive": null,
+      "r1": 1,
+      "r2": 41,
+      "r3": 1274,
+      "r4": 1366
+    },
+    {
+      "peptide": "YRWGHPELRR",
+      "naive": null,
+      "r1": 0,
+      "r2": 15,
+      "r3": 1191,
+      "r4": 1172
+    },
+    {
+      "peptide": "YREGHTLRFR",
+      "naive": null,
+      "r1": 1,
+      "r2": 26,
+      "r3": 1165,
+      "r4": 1147
+    },
+    {
+      "peptide": "SEVMLIAPKG",
+      "naive": null,
+      "r1": 0,
+      "r2": 37,
+      "r3": 1142,
+      "r4": 1252
+    },
+    {
+      "peptide": "YREGHWWITR",
+      "naive": null,
+      "r1": 0,
+      "r2": 36,
+      "r3": 1056,
+      "r4": 645
+    },
+    {
+      "peptide": "YRSEHPRYRK",
+      "naive": null,
+      "r1": 0,
+      "r2": 39,
+      "r3": 1044,
+      "r4": 842
+    },
+    {
+      "peptide": "YRLGHVYPAR",
+      "naive": null,
+      "r1": 0,
+      "r2": 2,
+      "r3": 1033,
+      "r4": 1283
+    },
+    {
+      "peptide": "YRRGHRSIPK",
+      "naive": null,
+      "r1": 1,
+      "r2": 46,
+      "r3": 979,
+      "r4": 529
+    },
+    {
+      "peptide": "ARRQHWVPSK",
+      "naive": null,
+      "r1": 0,
+      "r2": 82,
+      "r3": 912,
+      "r4": 671
+    },
+    {
+      "peptide": "ARHPRVNWRK",
+      "naive": null,
+      "r1": 2,
+      "r2": 37,
+      "r3": 909,
+      "r4": 1133
+    },
+    {
+      "peptide": "QRWPRVPWAK",
+      "naive": null,
+      "r1": 0,
+      "r2": 25,
+      "r3": 905,
+      "r4": 910
+    },
+    {
+      "peptide": "YRRGHRAVNK",
+      "naive": null,
+      "r1": 1,
+      "r2": 25,
+      "r3": 825,
+      "r4": 572
+    },
+    {
+      "peptide": "DRLNGAVSLK",
+      "naive": null,
+      "r1": 0,
+      "r2": 22,
+      "r3": 824,
+      "r4": 504
+    },
+    {
+      "peptide": "GRIMLLTDPK",
+      "naive": null,
+      "r1": 0,
+      "r2": 23,
+      "r3": 800,
+      "r4": 560
+    },
+    {
+      "peptide": "YRTPHPRYRK",
+      "naive": null,
+      "r1": 0,
+      "r2": 17,
+      "r3": 793,
+      "r4": 884
+    },
+    {
+      "peptide": "YRRGHRGPPK",
+      "naive": null,
+      "r1": 1,
+      "r2": 31,
+      "r3": 695,
+      "r4": 377
+    },
+    {
+      "peptide": "RRFPRVQWQK",
+      "naive": null,
+      "r1": 2,
+      "r2": 14,
+      "r3": 661,
+      "r4": 534
+    },
+    {
+      "peptide": "YRNGHVYPAK",
+      "naive": null,
+      "r1": 0,
+      "r2": 1,
+      "r3": 660,
+      "r4": 734
+    },
+    {
+      "peptide": "FRFPRISWTK",
+      "naive": null,
+      "r1": 0,
+      "r2": 11,
+      "r3": 653,
+      "r4": 444
+    },
+    {
+      "peptide": "LRFPRIPHIK",
+      "naive": null,
+      "r1": 0,
+      "r2": 21,
+      "r3": 643,
+      "r4": 776
+    }
+  ],
+  "top50_r4": [
+    {
+      "peptide": "YRNGHVYPAR",
+      "naive": null,
+      "r1": 2,
+      "r2": 361,
+      "r3": 30175,
+      "r4": 38975
+    },
+    {
+      "peptide": "RRDWSYVQPK",
+      "naive": null,
+      "r1": 3,
+      "r2": 320,
+      "r3": 24124,
+      "r4": 34600
+    },
+    {
+      "peptide": "YRLGHVYPAK",
+      "naive": null,
+      "r1": 0,
+      "r2": 313,
+      "r3": 22248,
+      "r4": 22943
+    },
+    {
+      "peptide": "HRQPRISWVR",
+      "naive": null,
+      "r1": 0,
+      "r2": 191,
+      "r3": 11485,
+      "r4": 18005
+    },
+    {
+      "peptide": "YRDGHTWIVR",
+      "naive": null,
+      "r1": 0,
+      "r2": 148,
+      "r3": 12396,
+      "r4": 14636
+    },
+    {
+      "peptide": "YRLGHTYPAK",
+      "naive": null,
+      "r1": 0,
+      "r2": 115,
+      "r3": 10631,
+      "r4": 13770
+    },
+    {
+      "peptide": "YRIGHAYPPR",
+      "naive": null,
+      "r1": 0,
+      "r2": 262,
+      "r3": 14049,
+      "r4": 12193
+    },
+    {
+      "peptide": "KRDGWTEFAK",
+      "naive": null,
+      "r1": 2,
+      "r2": 138,
+      "r3": 8583,
+      "r4": 11039
+    },
+    {
+      "peptide": "KRFPRLPIPR",
+      "naive": null,
+      "r1": 8,
+      "r2": 456,
+      "r3": 10986,
+      "r4": 9764
+    },
+    {
+      "peptide": "ARRYHWVPSR",
+      "naive": null,
+      "r1": 0,
+      "r2": 179,
+      "r3": 10682,
+      "r4": 8014
+    },
+    {
+      "peptide": "KRFPRIDVAR",
+      "naive": null,
+      "r1": 1,
+      "r2": 92,
+      "r3": 4864,
+      "r4": 6260
+    },
+    {
+      "peptide": "YRTAHMPRLR",
+      "naive": null,
+      "r1": 0,
+      "r2": 207,
+      "r3": 7300,
+      "r4": 5279
+    },
+    {
+      "peptide": "YRLGHTYPER",
+      "naive": null,
+      "r1": 0,
+      "r2": 100,
+      "r3": 4514,
+      "r4": 4788
+    },
+    {
+      "peptide": "YRFPRISLTK",
+      "naive": null,
+      "r1": 1,
+      "r2": 73,
+      "r3": 3264,
+      "r4": 4232
+    },
+    {
+      "peptide": "VRLVDVEFPK",
+      "naive": null,
+      "r1": 0,
+      "r2": 34,
+      "r3": 2871,
+      "r4": 3935
+    },
+    {
+      "peptide": "WRAPRIDLSK",
+      "naive": null,
+      "r1": 0,
+      "r2": 65,
+      "r3": 2714,
+      "r4": 3558
+    },
+    {
+      "peptide": "GRDGWSEFPK",
+      "naive": null,
+      "r1": 2,
+      "r2": 63,
+      "r3": 3245,
+      "r4": 3367
+    },
+    {
+      "peptide": "YRTAHHPRLK",
+      "naive": null,
+      "r1": 5,
+      "r2": 112,
+      "r3": 3484,
+      "r4": 3313
+    },
+    {
+      "peptide": "YRFPRVRVTR",
+      "naive": null,
+      "r1": 0,
+      "r2": 49,
+      "r3": 2978,
+      "r4": 2664
+    },
+    {
+      "peptide": "YRMDWVPYGK",
+      "naive": null,
+      "r1": 0,
+      "r2": 68,
+      "r3": 2244,
+      "r4": 2488
+    },
+    {
+      "peptide": "YRDGHSYPQR",
+      "naive": null,
+      "r1": 0,
+      "r2": 27,
+      "r3": 1802,
+      "r4": 2230
+    },
+    {
+      "peptide": "YRRGHPETPK",
+      "naive": null,
+      "r1": 2,
+      "r2": 55,
+      "r3": 2053,
+      "r4": 1817
+    },
+    {
+      "peptide": "SRVMLLAPRG",
+      "naive": null,
+      "r1": 0,
+      "r2": 41,
+      "r3": 1620,
+      "r4": 1742
+    },
+    {
+      "peptide": "YREGHTLRLR",
+      "naive": null,
+      "r1": 0,
+      "r2": 48,
+      "r3": 1748,
+      "r4": 1695
+    },
+    {
+      "peptide": "YRLGHRYPDK",
+      "naive": null,
+      "r1": 1,
+      "r2": 43,
+      "r3": 1734,
+      "r4": 1672
+    },
+    {
+      "peptide": "YRSVHPRQRR",
+      "naive": null,
+      "r1": 0,
+      "r2": 37,
+      "r3": 1524,
+      "r4": 1568
+    },
+    {
+      "peptide": "ARDSMRTAKG",
+      "naive": null,
+      "r1": 1,
+      "r2": 41,
+      "r3": 1274,
+      "r4": 1366
+    },
+    {
+      "peptide": "YRLGHVYPAR",
+      "naive": null,
+      "r1": 0,
+      "r2": 2,
+      "r3": 1033,
+      "r4": 1283
+    },
+    {
+      "peptide": "SEVMLIAPKG",
+      "naive": null,
+      "r1": 0,
+      "r2": 37,
+      "r3": 1142,
+      "r4": 1252
+    },
+    {
+      "peptide": "YRWGHPELRR",
+      "naive": null,
+      "r1": 0,
+      "r2": 15,
+      "r3": 1191,
+      "r4": 1172
+    },
+    {
+      "peptide": "YREGHTLRFR",
+      "naive": null,
+      "r1": 1,
+      "r2": 26,
+      "r3": 1165,
+      "r4": 1147
+    },
+    {
+      "peptide": "ARHPRVNWRK",
+      "naive": null,
+      "r1": 2,
+      "r2": 37,
+      "r3": 909,
+      "r4": 1133
+    },
+    {
+      "peptide": "YRFPRIQWCR",
+      "naive": null,
+      "r1": 0,
+      "r2": 33,
+      "r3": 1319,
+      "r4": 1111
+    },
+    {
+      "peptide": "YRRGHSLVPK",
+      "naive": null,
+      "r1": 1,
+      "r2": 36,
+      "r3": 1303,
+      "r4": 1076
+    },
+    {
+      "peptide": "YRRGHRLTSK",
+      "naive": null,
+      "r1": 1,
+      "r2": 69,
+      "r3": 1558,
+      "r4": 955
+    },
+    {
+      "peptide": "QRWPRVPWAK",
+      "naive": null,
+      "r1": 0,
+      "r2": 25,
+      "r3": 905,
+      "r4": 910
+    },
+    {
+      "peptide": "YRTPHPRYRK",
+      "naive": null,
+      "r1": 0,
+      "r2": 17,
+      "r3": 793,
+      "r4": 884
+    },
+    {
+      "peptide": "QRWSFYKSLK",
+      "naive": null,
+      "r1": 0,
+      "r2": 55,
+      "r3": 1607,
+      "r4": 866
+    },
+    {
+      "peptide": "YRSEHPRYRK",
+      "naive": null,
+      "r1": 0,
+      "r2": 39,
+      "r3": 1044,
+      "r4": 842
+    },
+    {
+      "peptide": "LRFPRIPHIK",
+      "naive": null,
+      "r1": 0,
+      "r2": 21,
+      "r3": 643,
+      "r4": 776
+    },
+    {
+      "peptide": "YRNGHVYPAK",
+      "naive": null,
+      "r1": 0,
+      "r2": 1,
+      "r3": 660,
+      "r4": 734
+    },
+    {
+      "peptide": "ARRQHWVPSK",
+      "naive": null,
+      "r1": 0,
+      "r2": 82,
+      "r3": 912,
+      "r4": 671
+    },
+    {
+      "peptide": "VRDGWSEFQK",
+      "naive": null,
+      "r1": 0,
+      "r2": 24,
+      "r3": 621,
+      "r4": 652
+    },
+    {
+      "peptide": "YREGHWWITR",
+      "naive": null,
+      "r1": 0,
+      "r2": 36,
+      "r3": 1056,
+      "r4": 645
+    },
+    {
+      "peptide": "YRNAHEYPWK",
+      "naive": null,
+      "r1": 0,
+      "r2": 18,
+      "r3": 599,
+      "r4": 639
+    },
+    {
+      "peptide": "KRFPRIPHSK",
+      "naive": null,
+      "r1": 0,
+      "r2": 16,
+      "r3": 613,
+      "r4": 600
+    },
+    {
+      "peptide": "YRRGHRAVNK",
+      "naive": null,
+      "r1": 1,
+      "r2": 25,
+      "r3": 825,
+      "r4": 572
+    },
+    {
+      "peptide": "GRIMLLTDPK",
+      "naive": null,
+      "r1": 0,
+      "r2": 23,
+      "r3": 800,
+      "r4": 560
+    },
+    {
+      "peptide": "WRAPRVSHPK",
+      "naive": null,
+      "r1": 0,
+      "r2": 16,
+      "r3": 474,
+      "r4": 550
+    },
+    {
+      "peptide": "RRFPRVQWQK",
+      "naive": null,
+      "r1": 2,
+      "r2": 14,
+      "r3": 661,
+      "r4": 534
+    }
+  ],
+  "motif": null,
+  "logo_url": null,
+  "binding": {
+    "counts": {
+      "strong_binder": 98,
+      "weak_binder": 202,
+      "non_binder": 60
+    },
+    "rank_thresholds": {},
+    "plot_url": "/assets/binding_plots/uniques_stats_AS3.1.csv_binding_dist.png"
+  },
+  "generated_at": "2026-03-11T14:48:01"
+}

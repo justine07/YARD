@@ -1,0 +1,1 @@
+import{_ as a,c as o,a as t,f as n}from"./index-CULRYTSK.js";const s={},c={class:"panel content-page"};function r(i,e){return n(),o("section",c,[...e[0]||(e[0]=[t("h1",null,"Citation",-1),t("p",null,"If you use this platform, cite both the database resource and the original publications for each selected experiment.",-1)])])}const f=a(s,[["render",r]]);export{f as default};

@@ -1,0 +1,16 @@
+{
+  "exp_id": "5c.c7_13mer_I-Ek",
+  "structures": [
+    {
+      "id": "4P2Q",
+      "filename": "4P2Q.trunc.fit.pdb",
+      "url": "/assets/pdb/4P2Q.trunc.fit.pdb"
+    },
+    {
+      "id": "4P2R",
+      "filename": "4P2R.trunc.fit.pdb",
+      "url": "/assets/pdb/4P2R.trunc.fit.pdb"
+    }
+  ],
+  "generated_at": "2026-03-11T14:48:09"
+}

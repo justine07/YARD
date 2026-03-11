@@ -1,0 +1,21 @@
+{
+  "exp_id": "2B4_13mer_I-Ek",
+  "structures": [
+    {
+      "id": "3QIB",
+      "filename": "3QIB.trunc.fit.pdb",
+      "url": "/assets/pdb/3QIB.trunc.fit.pdb"
+    },
+    {
+      "id": "4P2O",
+      "filename": "4P2O.trunc.fit.pdb",
+      "url": "/assets/pdb/4P2O.trunc.fit.pdb"
+    },
+    {
+      "id": "6BGA",
+      "filename": "6BGA.trunc.fit.pdb",
+      "url": "/assets/pdb/6BGA.trunc.fit.pdb"
+    }
+  ],
+  "generated_at": "2026-03-11T14:48:08"
+}
