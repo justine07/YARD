@@ -19,7 +19,10 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>TCR-pMHC Interaction Database. Static SPA build for Cloudflare Pages.</p>
+        <div>
+          <p>&copy; 2026 TCR-pMHC Interaction Database.</p>
+          <p class="subtle">Generated for academic research. Contact: yuzhu.chen@imm.ox.ac.uk</p>
+        </div>
         <div class="footer-links">
           <RouterLink to="/data">Data</RouterLink>
           <RouterLink to="/citation">Citation</RouterLink>

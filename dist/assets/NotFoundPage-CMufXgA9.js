@@ -1,1 +1,0 @@
-import{_ as n,c as o,a as t,f as s}from"./index-CULRYTSK.js";const a={},c={class:"panel content-page"};function r(l,e){return s(),o("section",c,[...e[0]||(e[0]=[t("h1",null,"Page Not Found",-1),t("p",null,"This route does not exist in the current SPA build.",-1)])])}const d=n(a,[["render",r]]);export{d as default};

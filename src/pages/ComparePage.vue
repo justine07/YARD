@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue';
-import { loadCompareTop, loadExperiments } from '../services/dataApi';
+import { loadCompareTop, loadExperimentDetail, loadExperiments } from '../services/dataApi';
 
 const experiments = ref([]);
 const selectedIds = ref([]);
@@ -40,10 +40,23 @@ async function runCompare() {
     pairwise = jaccard(sets[0], sets[1]);
   }
 
+  const detailPayloads = await Promise.all(selectedIds.value.map((id) => loadExperimentDetail(id)));
+  const motifs = selectedIds.value.map((id, idx) => {
+    const exp = experiments.value.find((item) => item.exp_id === id) || null;
+    const payload = detailPayloads[idx];
+    return {
+      exp_id: id,
+      tcr: exp?.tcr || '-',
+      motif: payload?.motif || null,
+      logo_url: payload?.logo_url || null,
+    };
+  });
+
   compareResult.value = {
     commonCount: intersection.size,
     commonPeptides: [...intersection].slice(0, 50),
     pairwise,
+    motifs,
   };
 }
 
@@ -95,6 +108,28 @@ onMounted(async () => {
           <tr v-if="compareResult.commonPeptides.length === 0"><td class="empty">No common peptides in selected sets.</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <h3>Motif Comparison</h3>
+    <div class="motif-compare-grid">
+      <article class="motif-compare-card" v-for="item in compareResult.motifs" :key="item.exp_id">
+        <h4>{{ item.exp_id }} ({{ item.tcr }})</h4>
+        <img v-if="item.logo_url" class="logo" :src="item.logo_url" alt="Motif logo" />
+        <div v-if="item.motif" class="motif-grid mini" :style="{ '--cols': item.motif.peptide_length }">
+          <div class="cell head"></div>
+          <div class="cell head" v-for="n in item.motif.peptide_length" :key="`${item.exp_id}-head-${n}`">{{ n }}</div>
+          <template v-for="aa in item.motif.amino_acids" :key="`${item.exp_id}-${aa}`">
+            <div class="cell row-head mono">{{ aa }}</div>
+            <div
+              class="cell"
+              v-for="(pos, idx) in item.motif.pfm"
+              :key="`${item.exp_id}-${aa}-${idx}`"
+              :style="{ backgroundColor: `rgba(25,114,120,${pos[aa] || 0})` }"
+            />
+          </template>
+        </div>
+        <p v-if="!item.motif && !item.logo_url" class="empty">No motif data available.</p>
+      </article>
     </div>
   </section>
 </template>

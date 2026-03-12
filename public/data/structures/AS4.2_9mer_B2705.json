@@ -4,13 +4,15 @@
     {
       "id": "7N2N",
       "filename": "7N2N.trunc.fit.pdb",
-      "url": "/assets/pdb/7N2N.trunc.fit.pdb"
+      "url": "/assets/pdb/7N2N.trunc.fit.pdb",
+      "epitope": "TRLALIAPK"
     },
     {
       "id": "7N2O",
       "filename": "7N2O.trunc.fit.pdb",
-      "url": "/assets/pdb/7N2O.trunc.fit.pdb"
+      "url": "/assets/pdb/7N2O.trunc.fit.pdb",
+      "epitope": "LRVMMLAPF"
     }
   ],
-  "generated_at": "2026-03-11T14:48:04"
+  "generated_at": "2026-03-12T23:35:06"
 }

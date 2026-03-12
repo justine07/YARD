@@ -4,18 +4,21 @@
     {
       "id": "3QIB",
       "filename": "3QIB.trunc.fit.pdb",
-      "url": "/assets/pdb/3QIB.trunc.fit.pdb"
+      "url": "/assets/pdb/3QIB.trunc.fit.pdb",
+      "epitope": "ADLIAYLKQATKG"
     },
     {
       "id": "4P2O",
       "filename": "4P2O.trunc.fit.pdb",
-      "url": "/assets/pdb/4P2O.trunc.fit.pdb"
+      "url": "/assets/pdb/4P2O.trunc.fit.pdb",
+      "epitope": "ADPLAFFSSAIK"
     },
     {
       "id": "6BGA",
       "filename": "6BGA.trunc.fit.pdb",
-      "url": "/assets/pdb/6BGA.trunc.fit.pdb"
+      "url": "/assets/pdb/6BGA.trunc.fit.pdb",
+      "epitope": "ADSLSFFSSSIKRGGGSLVP, YVVVPDGTGGGSGSG"
     }
   ],
-  "generated_at": "2026-03-11T14:48:08"
+  "generated_at": "2026-03-12T23:35:12"
 }

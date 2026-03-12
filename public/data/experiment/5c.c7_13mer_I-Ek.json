@@ -19,7 +19,17 @@
     "counts_jsonl": "output/counts/5c.c7_13mer_I-Ek.jsonl",
     "counts_rows": 673461,
     "pdb_id": "4P2Q/4P2R",
-    "has_structure": true
+    "has_structure": true,
+    "structure_annotations": [
+      {
+        "pdb_id": "4P2Q",
+        "epitope": "ADGLAYFRSSFK"
+      },
+      {
+        "pdb_id": "4P2R",
+        "epitope": "ANGVAFFLTPFK"
+      }
+    ]
   },
   "top50_r3": [
     {
@@ -1433,6 +1443,8 @@
     ]
   },
   "logo_url": "/assets/logos/5c.c7_13mer_I-Ek.motif_r3_gt0.png",
+  "mhc_motif": null,
+  "mhc_logo_url": null,
   "binding": {
     "counts": {
       "strong_binder": 0,
@@ -1442,5 +1454,5 @@
     "rank_thresholds": {},
     "plot_url": "/assets/binding_plots/5cc7_uniques.csv_binding_dist.png"
   },
-  "generated_at": "2026-03-11T14:48:09"
+  "generated_at": "2026-03-12T23:35:14"
 }

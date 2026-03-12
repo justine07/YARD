@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, ref } from 'vue';
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { Chart, BarController, BarElement, CategoryScale, LinearScale, DoughnutController, ArcElement, Tooltip, Legend } from 'chart.js';
 import { loadExperiments, loadHomeStats } from '../services/dataApi';
 
@@ -101,9 +101,23 @@ function renderCharts() {
 
 onMounted(async () => {
   const [homeStats, experiments] = await Promise.all([loadHomeStats(), loadExperiments()]);
-  stats.value = homeStats || summarizeExperiments(experiments);
+  const derivedStats = summarizeExperiments(experiments);
+  const hasUsableHomeStats = homeStats && Number(homeStats.total_exps || 0) > 0;
+  stats.value = hasUsableHomeStats ? homeStats : derivedStats;
   loading.value = false;
+  await nextTick();
   renderCharts();
+});
+
+watch(stats, async () => {
+  if (loading.value) return;
+  await nextTick();
+  renderCharts();
+}, { deep: true });
+
+onBeforeUnmount(() => {
+  if (hlaChart) hlaChart.destroy();
+  if (lenChart) lenChart.destroy();
 });
 </script>
 

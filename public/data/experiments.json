@@ -18,7 +18,8 @@
     "doi": "https://doi.org/10.7554/eLife.58128",
     "counts_jsonl": "output/counts/Aga1_B57.jsonl",
     "counts_rows": 1427933,
-    "has_structure": false
+    "has_structure": false,
+    "structure_annotations": []
   },
   {
     "exp_id": "TCR1A_9mer_A0201",
@@ -39,7 +40,8 @@
     "doi": "https://doi.org/10.1016/j.cell.2017.11.043",
     "counts_jsonl": "output/counts/TCR1A_9mer_A0201.jsonl",
     "counts_rows": 19927,
-    "has_structure": false
+    "has_structure": false,
+    "structure_annotations": []
   },
   {
     "exp_id": "TCR2A_9mer_A0201",
@@ -60,7 +62,8 @@
     "doi": "https://doi.org/10.1016/j.cell.2017.11.043",
     "counts_jsonl": "output/counts/TCR2A_9mer_A0201.jsonl",
     "counts_rows": 178500,
-    "has_structure": false
+    "has_structure": false,
+    "structure_annotations": []
   },
   {
     "exp_id": "TCR3A_9mer_A0201",
@@ -81,7 +84,8 @@
     "doi": "https://doi.org/10.1016/j.cell.2017.11.043",
     "counts_jsonl": "output/counts/TCR3A_9mer_A0201.jsonl",
     "counts_rows": 139780,
-    "has_structure": false
+    "has_structure": false,
+    "structure_annotations": []
   },
   {
     "exp_id": "TCR4A_9mer_A0201",
@@ -102,7 +106,8 @@
     "doi": "https://doi.org/10.1016/j.cell.2017.11.043",
     "counts_jsonl": "output/counts/TCR4A_9mer_A0201.jsonl",
     "counts_rows": 164091,
-    "has_structure": false
+    "has_structure": false,
+    "structure_annotations": []
   },
   {
     "exp_id": "DMF5_9mer_A0201",
@@ -124,7 +129,33 @@
     "counts_jsonl": "output/counts/DMF5_9mer_A0201.jsonl",
     "counts_rows": 367562,
     "pdb_id": "3QDG/3QDJ/6AM5/6AMU/6D78/6DKP",
-    "has_structure": true
+    "has_structure": true,
+    "structure_annotations": [
+      {
+        "pdb_id": "3QDG",
+        "epitope": "ELAGIGILTV"
+      },
+      {
+        "pdb_id": "3QDJ",
+        "epitope": "AAGIGILTV"
+      },
+      {
+        "pdb_id": "6AM5",
+        "epitope": "SMLGIGIVPV"
+      },
+      {
+        "pdb_id": "6AMU",
+        "epitope": "MMWDRGLGMM"
+      },
+      {
+        "pdb_id": "6D78",
+        "epitope": "AAGIGILTV"
+      },
+      {
+        "pdb_id": "6DKP",
+        "epitope": "ELAGIGILTV"
+      }
+    ]
   },
   {
     "exp_id": "DMF5_10mer_A0201",
@@ -146,7 +177,33 @@
     "counts_jsonl": "output/counts/DMF5_10mer_A0201.jsonl",
     "counts_rows": 212997,
     "pdb_id": "3QDG/3QDJ/6AM5/6AMU/6D78/6DKP",
-    "has_structure": true
+    "has_structure": true,
+    "structure_annotations": [
+      {
+        "pdb_id": "3QDG",
+        "epitope": "ELAGIGILTV"
+      },
+      {
+        "pdb_id": "3QDJ",
+        "epitope": "AAGIGILTV"
+      },
+      {
+        "pdb_id": "6AM5",
+        "epitope": "SMLGIGIVPV"
+      },
+      {
+        "pdb_id": "6AMU",
+        "epitope": "MMWDRGLGMM"
+      },
+      {
+        "pdb_id": "6D78",
+        "epitope": "AAGIGILTV"
+      },
+      {
+        "pdb_id": "6DKP",
+        "epitope": "ELAGIGILTV"
+      }
+    ]
   },
   {
     "exp_id": "AS3.1_9mer_B2705",
@@ -168,7 +225,13 @@
     "counts_jsonl": "output/counts/AS3.1_9mer_B2705.jsonl",
     "counts_rows": 33839,
     "pdb_id": "7N2S",
-    "has_structure": true
+    "has_structure": true,
+    "structure_annotations": [
+      {
+        "pdb_id": "7N2S",
+        "epitope": "TRLALIAPK"
+      }
+    ]
   },
   {
     "exp_id": "AS4.1_9mer_B2705",
@@ -189,7 +252,8 @@
     "doi": "https://doi.org/10.1038/s41586-022-05501-7",
     "counts_jsonl": "output/counts/AS4.1_9mer_B2705.jsonl",
     "counts_rows": 131793,
-    "has_structure": false
+    "has_structure": false,
+    "structure_annotations": []
   },
   {
     "exp_id": "AS4.2_9mer_B2705",
@@ -211,7 +275,17 @@
     "counts_jsonl": "output/counts/AS4.2_9mer_B2705.jsonl",
     "counts_rows": 685323,
     "pdb_id": "7N2N/7N2O",
-    "has_structure": true
+    "has_structure": true,
+    "structure_annotations": [
+      {
+        "pdb_id": "7N2N",
+        "epitope": "TRLALIAPK"
+      },
+      {
+        "pdb_id": "7N2O",
+        "epitope": "LRVMMLAPF"
+      }
+    ]
   },
   {
     "exp_id": "AS4.3_9mer_B2705",
@@ -233,7 +307,21 @@
     "counts_jsonl": "output/counts/AS4.3_9mer_B2705.jsonl",
     "counts_rows": 667191,
     "pdb_id": "7N2P/7N2Q/7N2R",
-    "has_structure": true
+    "has_structure": true,
+    "structure_annotations": [
+      {
+        "pdb_id": "7N2P",
+        "epitope": "GQVMVVAPR"
+      },
+      {
+        "pdb_id": "7N2Q",
+        "epitope": "LRVMMLAPF"
+      },
+      {
+        "pdb_id": "7N2R",
+        "epitope": "TRLALIAPK"
+      }
+    ]
   },
   {
     "exp_id": "AS4.4_9mer_B2705",
@@ -254,7 +342,8 @@
     "doi": "https://doi.org/10.1038/s41586-022-05501-7",
     "counts_jsonl": "output/counts/AS4.4_9mer_B2705.jsonl",
     "counts_rows": 627776,
-    "has_structure": false
+    "has_structure": false,
+    "structure_annotations": []
   },
   {
     "exp_id": "TCR6_21mer_DR4",
@@ -275,7 +364,8 @@
     "doi": "https://doi.org/10.1016/j.cell.2018.06.017",
     "counts_jsonl": "output/counts/TCR6_21mer_DR4.jsonl",
     "counts_rows": 179871,
-    "has_structure": false
+    "has_structure": false,
+    "structure_annotations": []
   },
   {
     "exp_id": "2B4_13mer_I-Ek",
@@ -297,7 +387,21 @@
     "counts_jsonl": "output/counts/2B4_13mer_I-Ek.jsonl",
     "counts_rows": 295003,
     "pdb_id": "3QIB/4P2O/6BGA",
-    "has_structure": true
+    "has_structure": true,
+    "structure_annotations": [
+      {
+        "pdb_id": "3QIB",
+        "epitope": "ADLIAYLKQATKG"
+      },
+      {
+        "pdb_id": "4P2O",
+        "epitope": "ADPLAFFSSAIK"
+      },
+      {
+        "pdb_id": "6BGA",
+        "epitope": "ADSLSFFSSSIKRGGGSLVP, YVVVPDGTGGGSGSG"
+      }
+    ]
   },
   {
     "exp_id": "5c.c7_13mer_I-Ek",
@@ -319,7 +423,17 @@
     "counts_jsonl": "output/counts/5c.c7_13mer_I-Ek.jsonl",
     "counts_rows": 673461,
     "pdb_id": "4P2Q/4P2R",
-    "has_structure": true
+    "has_structure": true,
+    "structure_annotations": [
+      {
+        "pdb_id": "4P2Q",
+        "epitope": "ADGLAYFRSSFK"
+      },
+      {
+        "pdb_id": "4P2R",
+        "epitope": "ANGVAFFLTPFK"
+      }
+    ]
   },
   {
     "exp_id": "226_13mer_I-Ek",
@@ -341,681 +455,16 @@
     "counts_jsonl": "output/counts/226_13mer_I-Ek.jsonl",
     "counts_rows": 659272,
     "pdb_id": "3QIU/3QIW",
-    "has_structure": true
-  },
-  {
-    "exp_id": "AS4.1_9mer_B2705",
-    "tcr": "AS4.1",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-AS4.1_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSVGLYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAVSSPQGGSEKLVF",
-    "traj": "57",
-    "total_peptides": 540627,
-    "round3_gt_0": 25214,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS4.1_9mer_B2705.jsonl",
-    "counts_rows": 540627,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS8.4_9mer_B2705",
-    "tcr": "AS8.4",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-AS8.4_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSVGTYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAVNSPGSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 438629,
-    "round3_gt_0": 35832,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS8.4_9mer_B2705.jsonl",
-    "counts_rows": 438629,
-    "pdb_id": "8CX4",
-    "has_structure": true
-  },
-  {
-    "exp_id": "AS9.1_9mer_B2705",
-    "tcr": "AS9.1",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-AS9.1_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSGGLYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAVSFPAGANSKLTF",
-    "traj": "56",
-    "total_peptides": 456867,
-    "round3_gt_0": 33797,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS9.1_9mer_B2705.jsonl",
-    "counts_rows": 456867,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS19.2_9mer_B2705",
-    "tcr": "AS19.2",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-19.2_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSPATYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CGIALIGSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 776210,
-    "round3_gt_0": 74659,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS19.2_9mer_B2705.jsonl",
-    "counts_rows": 776210,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS19.2C1_9mer_B2705",
-    "tcr": "AS19.2C1",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-19.2C1_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSVAYYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CGIALIGSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 478596,
-    "round3_gt_0": 12189,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS19.2C1_9mer_B2705.jsonl",
-    "counts_rows": 478596,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS19.2C2_9mer_B2705",
-    "tcr": "AS19.2C2",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-19.2C2_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSVATYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CGIALIGSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 358832,
-    "round3_gt_0": 10589,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS19.2C2_9mer_B2705.jsonl",
-    "counts_rows": 358832,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS19.2C3_9mer_B2705",
-    "tcr": "AS19.2C3",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-19.2C3_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSPAYYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CGIALIGSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 315397,
-    "round3_gt_0": 14832,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS19.2C3_9mer_B2705.jsonl",
-    "counts_rows": 315397,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS19.2C4_9mer_B2705",
-    "tcr": "AS19.2C4",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-19.2C4_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSVGTYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CGIALIGSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 330492,
-    "round3_gt_0": 9997,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS19.2C4_9mer_B2705.jsonl",
-    "counts_rows": 330492,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS19.2C5_9mer_B2705",
-    "tcr": "AS19.2C5",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-19.2C5_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSVGLYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CGIALIGSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 370349,
-    "round3_gt_0": 46628,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS19.2C5_9mer_B2705.jsonl",
-    "counts_rows": 370349,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS26.1_9mer_B2705",
-    "tcr": "AS26.1",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-26.1_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSLAYYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAVSANYGGSQGNLIF",
-    "traj": "42",
-    "total_peptides": 362011,
-    "round3_gt_0": 5753,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS26.1_9mer_B2705.jsonl",
-    "counts_rows": 362011,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS26.2_9mer_B2705",
-    "tcr": "AS26.2",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-26.2_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSPWGTYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAVDSFNTQGAQKLVF",
-    "traj": "54",
-    "total_peptides": 522892,
-    "round3_gt_0": 10562,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS26.2_9mer_B2705.jsonl",
-    "counts_rows": 522892,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS28.1_9mer_B2705",
-    "tcr": "AS28.1",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-28.1_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSVAYYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAALSQGGSEKLVF",
-    "traj": "57",
-    "total_peptides": 328650,
-    "round3_gt_0": 4668,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS28.1_9mer_B2705.jsonl",
-    "counts_rows": 328650,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS135.4_9mer_B2705",
-    "tcr": "AS135.4",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-135.4_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSPGTFSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAVNSPSYSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 553682,
-    "round3_gt_0": 72827,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS135.4_9mer_B2705.jsonl",
-    "counts_rows": 553682,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS135.7_9mer_B2705",
-    "tcr": "AS135.7",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-135.7_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSVAYYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAAPYGGSQGNLIF",
-    "traj": "42",
-    "total_peptides": 474951,
-    "round3_gt_0": 16482,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS135.7_9mer_B2705.jsonl",
-    "counts_rows": 474951,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS19.2_9mer_B2705",
-    "tcr": "AS19.2",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Xinbo-19.2_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSPATYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CGIALIGSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 962833,
-    "round3_gt_0": 131853,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS19.2_9mer_B2705.jsonl",
-    "counts_rows": 962833,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS19.2C1_9mer_B2705",
-    "tcr": "AS19.2C1",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Xinbo-19.2C1_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSVAYYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CGIALIGSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 899018,
-    "round3_gt_0": 65479,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS19.2C1_9mer_B2705.jsonl",
-    "counts_rows": 899018,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS19.2C2_9mer_B2705",
-    "tcr": "AS19.2C2",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Xinbo-19.2C2_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSVATYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CGIALIGSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 598233,
-    "round3_gt_0": 25710,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS19.2C2_9mer_B2705.jsonl",
-    "counts_rows": 598233,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS19.2C3_9mer_B2705",
-    "tcr": "AS19.2C3",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Xinbo-19.2C3_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSPAYYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CGIALIGSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 486087,
-    "round3_gt_0": 11677,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS19.2C3_9mer_B2705.jsonl",
-    "counts_rows": 486087,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS19.2C4_9mer_B2705",
-    "tcr": "AS19.2C4",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Xinbo-19.2C4_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSVGTYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CGIALIGSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 710207,
-    "round3_gt_0": 62485,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS19.2C4_9mer_B2705.jsonl",
-    "counts_rows": 710207,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS19.2C5_9mer_B2705",
-    "tcr": "AS19.2C5",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Xinbo-19.2C5_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSVGLYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CGIALIGSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 799727,
-    "round3_gt_0": 172182,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS19.2C5_9mer_B2705.jsonl",
-    "counts_rows": 799727,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS26.2_9mer_B2705",
-    "tcr": "AS26.2",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Xinbo-26.2_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSPWGTYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAVDSFNTQGAQKLVF",
-    "traj": "54",
-    "total_peptides": 376702,
-    "round3_gt_0": 8176,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS26.2_9mer_B2705.jsonl",
-    "counts_rows": 376702,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS28.1_9mer_B2705",
-    "tcr": "AS28.1",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Xinbo-28.1_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSVAYYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAALSQGGSEKLVF",
-    "traj": "57",
-    "total_peptides": 405755,
-    "round3_gt_0": 22382,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS28.1_9mer_B2705.jsonl",
-    "counts_rows": 405755,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS135.4_9mer_B2705",
-    "tcr": "AS135.4",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Xinbo-135.4_peptide_counts.csv",
-    "trbv": "9",
-    "cdr3b": "CASSPGTFSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAVNSPSYSGAGSYQLTF",
-    "traj": "28",
-    "total_peptides": 744899,
-    "round3_gt_0": 63932,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS135.4_9mer_B2705.jsonl",
-    "counts_rows": 744899,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS135.1_9mer_B2705",
-    "tcr": "AS135.1",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-135.1_peptide_counts.csv",
-    "trbv": "5",
-    "cdr3b": "CASSLEVYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAVLGFQKLVF",
-    "traj": "8",
-    "total_peptides": 82846,
-    "round3_gt_0": 3604,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS135.1_9mer_B2705.jsonl",
-    "counts_rows": 82846,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS135.3_9mer_B2705",
-    "tcr": "AS135.3",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-135.3_peptide_counts.csv",
-    "trbv": "5",
-    "cdr3b": "CASSLEVYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAVRGFNQAGTALIF",
-    "traj": "15",
-    "total_peptides": 174812,
-    "round3_gt_0": 7210,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS135.3_9mer_B2705.jsonl",
-    "counts_rows": 174812,
-    "has_structure": false
-  },
-  {
-    "exp_id": "AS135.8_9mer_B2705",
-    "tcr": "AS135.8",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-135.8_peptide_counts.csv",
-    "trbv": "5",
-    "cdr3b": "CASSFGLYSTDTQYF",
-    "trbj": "2-3",
-    "trav": "21",
-    "cdr3a": "CAASSGYALNF",
-    "traj": "41",
-    "total_peptides": 341438,
-    "round3_gt_0": 3897,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/AS135.8_9mer_B2705.jsonl",
-    "counts_rows": 341438,
-    "has_structure": false
-  },
-  {
-    "exp_id": "UV019_9mer_B2705",
-    "tcr": "UV019",
-    "hla": "B27:05",
-    "peptide_length": 9,
-    "peptides_file": "Nan-UV019_peptide_counts.csv",
-    "trbv": "5",
-    "cdr3b": "CASSLGLYSTMEQYF",
-    "trbj": "2-7",
-    "trav": "21",
-    "cdr3a": "CAVSGGSNYKLTF",
-    "traj": "53",
-    "total_peptides": 250802,
-    "round3_gt_0": 4189,
-    "rounds": "1-4",
-    "first_author": "Wang",
-    "doi": "unpublished",
-    "counts_jsonl": "output/counts/UV019_9mer_B2705.jsonl",
-    "counts_rows": 250802,
-    "has_structure": false
-  },
-  {
-    "exp_id": "A3A_9mer_A0101",
-    "tcr": "A3A",
-    "hla": "A*01:01",
-    "peptide_length": 9,
-    "peptides_file": "A3A_9mer_HLA-A1.csv",
-    "trbv": "",
-    "cdr3b": "",
-    "trbj": "",
-    "trav": "21",
-    "cdr3a": "",
-    "traj": "",
-    "total_peptides": null,
-    "round3_gt_0": null,
-    "rounds": "1-4",
-    "first_author": "",
-    "doi": "",
-    "counts_jsonl": "output/counts/A3A_9mer_A0101.jsonl",
-    "counts_rows": 1048575,
-    "has_structure": false
-  },
-  {
-    "exp_id": "Brenetafusp_9mer_A0201",
-    "tcr": "Brenetafusp",
-    "hla": "A*02:01",
-    "peptide_length": 9,
-    "peptides_file": "Brenetafusp_9mer_HLA-A2.csv",
-    "trbv": "",
-    "cdr3b": "",
-    "trbj": "",
-    "trav": "",
-    "cdr3a": "",
-    "traj": "",
-    "total_peptides": null,
-    "round3_gt_0": null,
-    "rounds": "1-4",
-    "first_author": "",
-    "doi": "",
-    "counts_jsonl": "output/counts/Brenetafusp_9mer_A0201.jsonl",
-    "counts_rows": 46171,
-    "has_structure": false
-  },
-  {
-    "exp_id": "DMF5_10mer_A0201",
-    "tcr": "DMF5",
-    "hla": "A*02:01",
-    "peptide_length": 10,
-    "peptides_file": "DMF5_10mer_HLA-A2.csv",
-    "trbv": "",
-    "cdr3b": "",
-    "trbj": "",
-    "trav": "",
-    "cdr3a": "",
-    "traj": "",
-    "total_peptides": null,
-    "round3_gt_0": null,
-    "rounds": "1-4",
-    "first_author": "",
-    "doi": "",
-    "counts_jsonl": "output/counts/DMF5_10mer_A0201.jsonl",
-    "counts_rows": 667414,
-    "pdb_id": "3QDG/3QDJ/6AM5/6AMU/6D78/6DKP",
-    "has_structure": true
-  },
-  {
-    "exp_id": "MEL5_10mer_A0201",
-    "tcr": "MEL5",
-    "hla": "A*02:01",
-    "peptide_length": 10,
-    "peptides_file": "MEL5_10mer_HLA-A2.csv",
-    "trbv": "",
-    "cdr3b": "",
-    "trbj": "",
-    "trav": "",
-    "cdr3a": "",
-    "traj": "",
-    "total_peptides": null,
-    "round3_gt_0": null,
-    "rounds": "1-4",
-    "first_author": "",
-    "doi": "",
-    "counts_jsonl": "output/counts/MEL5_10mer_A0201.jsonl",
-    "counts_rows": 1048575,
-    "pdb_id": "3HG1/4QOK/6EQA/6EQB/7Q99/7Q9A",
-    "has_structure": true
-  },
-  {
-    "exp_id": "Tebentfusp_9mer_A0201",
-    "tcr": "Tebentfusp",
-    "hla": "A*02:01",
-    "peptide_length": 9,
-    "peptides_file": "Tebent_9mer_HLA-A2.csv",
-    "trbv": "",
-    "cdr3b": "",
-    "trbj": "",
-    "trav": "",
-    "cdr3a": "",
-    "traj": "",
-    "total_peptides": null,
-    "round3_gt_0": null,
-    "rounds": "1-4",
-    "first_author": "",
-    "doi": "",
-    "counts_jsonl": "output/counts/Tebentfusp_9mer_A0201.jsonl",
-    "counts_rows": 870437,
-    "has_structure": false
+    "has_structure": true,
+    "structure_annotations": [
+      {
+        "pdb_id": "3QIU",
+        "epitope": "ADLIAYLKQATKG"
+      },
+      {
+        "pdb_id": "3QIW",
+        "epitope": "ADLIAYLEQATKG"
+      }
+    ]
   }
 ]

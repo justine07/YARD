@@ -4,18 +4,21 @@
     {
       "id": "7N2P",
       "filename": "7N2P.trunc.fit.pdb",
-      "url": "/assets/pdb/7N2P.trunc.fit.pdb"
+      "url": "/assets/pdb/7N2P.trunc.fit.pdb",
+      "epitope": "GQVMVVAPR"
     },
     {
       "id": "7N2Q",
       "filename": "7N2Q.trunc.fit.pdb",
-      "url": "/assets/pdb/7N2Q.trunc.fit.pdb"
+      "url": "/assets/pdb/7N2Q.trunc.fit.pdb",
+      "epitope": "LRVMMLAPF"
     },
     {
       "id": "7N2R",
       "filename": "7N2R.trunc.fit.pdb",
-      "url": "/assets/pdb/7N2R.trunc.fit.pdb"
+      "url": "/assets/pdb/7N2R.trunc.fit.pdb",
+      "epitope": "TRLALIAPK"
     }
   ],
-  "generated_at": "2026-03-11T14:48:05"
+  "generated_at": "2026-03-12T23:35:08"
 }

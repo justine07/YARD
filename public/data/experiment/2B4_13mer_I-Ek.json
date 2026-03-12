@@ -19,7 +19,21 @@
     "counts_jsonl": "output/counts/2B4_13mer_I-Ek.jsonl",
     "counts_rows": 295003,
     "pdb_id": "3QIB/4P2O/6BGA",
-    "has_structure": true
+    "has_structure": true,
+    "structure_annotations": [
+      {
+        "pdb_id": "3QIB",
+        "epitope": "ADLIAYLKQATKG"
+      },
+      {
+        "pdb_id": "4P2O",
+        "epitope": "ADPLAFFSSAIK"
+      },
+      {
+        "pdb_id": "6BGA",
+        "epitope": "ADSLSFFSSSIKRGGGSLVP, YVVVPDGTGGGSGSG"
+      }
+    ]
   },
   "top50_r3": [
     {
@@ -1433,6 +1447,8 @@
     ]
   },
   "logo_url": "/assets/logos/2B4_13mer_I-Ek.motif_r3_gt0.png",
+  "mhc_motif": null,
+  "mhc_logo_url": null,
   "binding": {
     "counts": {
       "strong_binder": 0,
@@ -1442,5 +1458,5 @@
     "rank_thresholds": {},
     "plot_url": "/assets/binding_plots/Birnbaum2b4_uniques.csv_binding_dist.png"
   },
-  "generated_at": "2026-03-11T14:48:08"
+  "generated_at": "2026-03-12T23:35:12"
 }

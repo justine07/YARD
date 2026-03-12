@@ -4,8 +4,9 @@
     {
       "id": "7N2S",
       "filename": "7N2S.trunc.fit.pdb",
-      "url": "/assets/pdb/7N2S.trunc.fit.pdb"
+      "url": "/assets/pdb/7N2S.trunc.fit.pdb",
+      "epitope": "TRLALIAPK"
     }
   ],
-  "generated_at": "2026-03-11T14:48:01"
+  "generated_at": "2026-03-12T23:35:02"
 }

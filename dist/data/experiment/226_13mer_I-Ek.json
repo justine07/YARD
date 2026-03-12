@@ -19,7 +19,17 @@
     "counts_jsonl": "output/counts/226_13mer_I-Ek.jsonl",
     "counts_rows": 659272,
     "pdb_id": "3QIU/3QIW",
-    "has_structure": true
+    "has_structure": true,
+    "structure_annotations": [
+      {
+        "pdb_id": "3QIU",
+        "epitope": "ADLIAYLKQATKG"
+      },
+      {
+        "pdb_id": "3QIW",
+        "epitope": "ADLIAYLEQATKG"
+      }
+    ]
   },
   "top50_r3": [
     {
@@ -1433,6 +1443,8 @@
     ]
   },
   "logo_url": "/assets/logos/226_13mer_I-Ek.motif_r3_gt0.png",
+  "mhc_motif": null,
+  "mhc_logo_url": null,
   "binding": {
     "counts": {
       "strong_binder": 0,
@@ -1442,5 +1454,5 @@
     "rank_thresholds": {},
     "plot_url": "/assets/binding_plots/226_uniques.csv_binding_dist.png"
   },
-  "generated_at": "2026-03-11T14:48:11"
+  "generated_at": "2026-03-12T23:35:17"
 }

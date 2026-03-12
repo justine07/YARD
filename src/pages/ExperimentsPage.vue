@@ -84,7 +84,7 @@ onMounted(async () => {
             <td>{{ Number(exp.counts_rows || 0).toLocaleString() }}</td>
             <td>
               <a v-if="exp.doi && !['unpublish', 'unpublished'].includes(String(exp.doi).toLowerCase())" :href="`https://doi.org/${exp.doi}`" target="_blank" rel="noreferrer">DOI</a>
-              <span v-else>{{ exp.first_author || '-' }}</span>
+              <span v-else>unpublish</span>
             </td>
             <td class="actions">
               <RouterLink class="btn" :to="`/exp/${exp.exp_id}`">View</RouterLink>

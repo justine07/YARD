@@ -4,13 +4,15 @@
     {
       "id": "3QIU",
       "filename": "3QIU.trunc.fit.pdb",
-      "url": "/assets/pdb/3QIU.trunc.fit.pdb"
+      "url": "/assets/pdb/3QIU.trunc.fit.pdb",
+      "epitope": "ADLIAYLKQATKG"
     },
     {
       "id": "3QIW",
       "filename": "3QIW.trunc.fit.pdb",
-      "url": "/assets/pdb/3QIW.trunc.fit.pdb"
+      "url": "/assets/pdb/3QIW.trunc.fit.pdb",
+      "epitope": "ADLIAYLEQATKG"
     }
   ],
-  "generated_at": "2026-03-11T14:48:11"
+  "generated_at": "2026-03-12T23:35:17"
 }

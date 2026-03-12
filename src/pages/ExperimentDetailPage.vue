@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { Chart, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, LineController } from 'chart.js';
 import { loadExperimentDetail, loadExperiments } from '../services/dataApi';
@@ -9,23 +9,36 @@ Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, L
 const route = useRoute();
 const detail = ref(null);
 const loading = ref(true);
-const sortBy = ref('r3');
 const searchQuery = ref('');
 const chartCanvas = ref(null);
 let chart = null;
 
-const expId = computed(() => route.params.expId);
+const expId = computed(() => String(route.params.expId || ''));
+
+const sourceDoi = computed(() => {
+  const doi = detail.value?.exp?.doi;
+  if (!doi) return null;
+  const normalized = String(doi).toLowerCase();
+  if (normalized === 'unpublish' || normalized === 'unpublished') return null;
+  return doi;
+});
 
 const peptides = computed(() => {
   if (!detail.value) return [];
-  const key = sortBy.value === 'r4' ? 'top50_r4' : 'top50_r3';
-  let list = detail.value[key] || [];
+  let list = detail.value.top50_r3 || [];
 
   const q = searchQuery.value.trim().toUpperCase();
   if (q) {
     list = list.filter((item) => String(item.peptide || '').toUpperCase() === q);
   }
   return list;
+});
+
+const motifPositiveCount = computed(() => detail.value?.motif?.actual_n ?? null);
+
+const hasAnalysis = computed(() => {
+  if (!detail.value) return false;
+  return Boolean(detail.value.motif || detail.value.logo_url || detail.value.mhc_motif || detail.value.mhc_logo_url || detail.value.binding);
 });
 
 const chartDatasets = computed(() => {
@@ -65,6 +78,7 @@ async function loadDetail() {
   if (expDetails) {
     detail.value = expDetails;
     loading.value = false;
+    await nextTick();
     drawChart();
     return;
   }
@@ -75,20 +89,29 @@ async function loadDetail() {
     ? {
         exp: matched,
         top50_r3: [],
-        top50_r4: [],
         motif: null,
         binding: null,
+        logo_url: null,
       }
     : null;
 
   loading.value = false;
+  await nextTick();
   drawChart();
 }
 
-watch([sortBy, searchQuery], () => drawChart());
 watch(expId, () => loadDetail());
+watch(peptides, async () => {
+  if (loading.value) return;
+  await nextTick();
+  drawChart();
+}, { deep: true });
 
 onMounted(() => loadDetail());
+
+onBeforeUnmount(() => {
+  if (chart) chart.destroy();
+});
 </script>
 
 <template>
@@ -107,54 +130,86 @@ onMounted(() => loadDetail());
         <div><span> Peptide Length </span><strong>{{ detail.exp.peptide_length || '-' }}</strong></div>
         <div><span> Counts Rows </span><strong>{{ Number(detail.exp.counts_rows || 0).toLocaleString() }}</strong></div>
       </div>
-      <p class="subtle" v-if="detail.exp.doi">DOI: {{ detail.exp.doi }}</p>
+      <p class="subtle">
+        Source:
+        <a v-if="sourceDoi" :href="`https://doi.org/${sourceDoi}`" target="_blank" rel="noreferrer">{{ sourceDoi }}</a>
+        <span v-else>unpublish</span>
+      </p>
+
+      <details class="sequence-details">
+        <summary>View TCR Sequence Details (CDR3, V/J Genes)</summary>
+        <div class="sequence-grid">
+          <div class="seq-item"><strong>TRAV:</strong> {{ detail.exp.trav || '-' }}</div>
+          <div class="seq-item"><strong>CDR3a:</strong> <span class="mono">{{ detail.exp.cdr3a || '-' }}</span></div>
+          <div class="seq-item"><strong>TRAJ:</strong> {{ detail.exp.traj || '-' }}</div>
+          <div class="seq-item"><strong>TRBV:</strong> {{ detail.exp.trbv || '-' }}</div>
+          <div class="seq-item"><strong>CDR3b:</strong> <span class="mono">{{ detail.exp.cdr3b || '-' }}</span></div>
+          <div class="seq-item"><strong>TRBJ:</strong> {{ detail.exp.trbj || '-' }}</div>
+        </div>
+      </details>
     </section>
 
-    <section class="panel" v-if="detail.motif">
-      <h2>Motif Analysis</h2>
-      <div class="motif-grid" :style="{ '--cols': detail.motif.peptide_length }">
-        <div class="cell head"></div>
-        <div class="cell head" v-for="n in detail.motif.peptide_length" :key="`h-${n}`">{{ n }}</div>
-        <template v-for="aa in detail.motif.amino_acids" :key="aa">
-          <div class="cell row-head mono">{{ aa }}</div>
-          <div
-            class="cell"
-            v-for="(pos, idx) in detail.motif.pfm"
-            :key="`${aa}-${idx}`"
-            :style="{ backgroundColor: `rgba(25,114,120,${pos[aa] || 0})` }"
-            :title="`${aa} @ ${idx + 1}: ${(pos[aa] || 0).toFixed(3)}`"
-          />
-        </template>
+    <section class="panel" v-if="hasAnalysis">
+      <div class="title-row">
+        <h2>Motif Analysis & Binding Prediction</h2>
+        <span v-if="motifPositiveCount !== null" class="pill">R3 &gt; 0: {{ motifPositiveCount }}</span>
       </div>
-      <img
-        v-if="detail.logo_url"
-        class="logo"
-        :src="detail.logo_url"
-        alt="Sequence logo"
-      />
-    </section>
 
-    <section class="panel" v-if="detail.binding">
-      <h2>Binding Prediction</h2>
-      <div class="binding-stats">
-        <span>Strong: {{ detail.binding.counts?.strong_binder ?? 0 }}</span>
-        <span>Weak: {{ detail.binding.counts?.weak_binder ?? 0 }}</span>
-        <span>Non: {{ detail.binding.counts?.non_binder ?? 0 }}</span>
+      <div class="analysis-grid">
+        <article class="analysis-card" v-if="detail.logo_url || detail.mhc_logo_url">
+          <h3>Sequence Logo</h3>
+          <img v-if="detail.logo_url" class="logo" :src="detail.logo_url" alt="Sequence logo" />
+
+          <div v-if="detail.mhc_motif || detail.mhc_logo_url" class="stacked-logo-block">
+            <div class="analysis-divider"></div>
+            <h3>MHC Ligand Logo</h3>
+            <p class="subtle" v-if="detail.mhc_motif">
+              Reference ligands: {{ detail.mhc_motif.actual_n }}
+            </p>
+            <p class="subtle" v-if="detail.mhc_motif?.matched_alleles?.length">
+              Matched allele source: {{ detail.mhc_motif.matched_alleles.join(', ') }}
+            </p>
+            <p class="subtle" v-if="detail.mhc_motif?.source_class === 'classII_core'">
+              Class II core motif
+            </p>
+            <img v-if="detail.mhc_logo_url" class="logo" :src="detail.mhc_logo_url" alt="MHC ligand motif logo" />
+          </div>
+        </article>
+
+        <article class="analysis-card" v-if="detail.motif">
+          <h3>PFM Heatmap</h3>
+          <div class="motif-grid" :style="{ '--cols': detail.motif.peptide_length }">
+            <div class="cell head"></div>
+            <div class="cell head" v-for="n in detail.motif.peptide_length" :key="`h-${n}`">{{ n }}</div>
+            <template v-for="aa in detail.motif.amino_acids" :key="aa">
+              <div class="cell row-head mono">{{ aa }}</div>
+              <div
+                class="cell"
+                v-for="(pos, idx) in detail.motif.pfm"
+                :key="`${aa}-${idx}`"
+                :style="{ backgroundColor: `rgba(25,114,120,${pos[aa] || 0})` }"
+                :title="`${aa} @ ${idx + 1}: ${(pos[aa] || 0).toFixed(3)}`"
+              />
+            </template>
+          </div>
+        </article>
+
+        <article class="analysis-card" v-if="detail.binding">
+          <h3>Binding Prediction</h3>
+          <div class="binding-stats">
+            <span>Strong: {{ detail.binding.counts?.strong_binder ?? 0 }}</span>
+            <span>Weak: {{ detail.binding.counts?.weak_binder ?? 0 }}</span>
+            <span>Non: {{ detail.binding.counts?.non_binder ?? 0 }}</span>
+          </div>
+          <img v-if="detail.binding.plot_url" class="binding-plot" :src="detail.binding.plot_url" alt="Binding distribution" />
+        </article>
       </div>
-      <img v-if="detail.binding.plot_url" class="binding-plot" :src="detail.binding.plot_url" alt="Binding distribution" />
     </section>
 
     <section class="panel">
       <div class="toolbar">
-        <h2>Top Peptides</h2>
+        <h2>Top Peptides (Default sorted by R3)</h2>
         <div class="toolbar-right">
-          <label>
-            Sort
-            <select v-model="sortBy">
-              <option value="r3">R3</option>
-              <option value="r4">R4</option>
-            </select>
-          </label>
           <label>
             Exact peptide
             <input v-model="searchQuery" placeholder="e.g. LLFGYPVYV" />
