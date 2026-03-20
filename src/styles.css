@@ -128,6 +128,10 @@ a {
   margin-bottom: 1rem;
 }
 
+.panel-spacious {
+  padding: 1.2rem;
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -166,6 +170,14 @@ a {
 
 .chart-wrap {
   height: 300px;
+}
+
+.trajectory-chart {
+  height: 420px;
+}
+
+.chart-note {
+  margin: 0.35rem 0;
 }
 
 .filters {
@@ -315,6 +327,10 @@ th {
   flex-wrap: wrap;
 }
 
+.compact-toolbar {
+  margin-top: 1rem;
+}
+
 .motif-grid {
   --cols: 9;
   display: grid;
@@ -357,6 +373,87 @@ th {
 
 .analysis-card h3 {
   margin-top: 0;
+}
+
+.landscape-card {
+  margin-top: 1rem;
+}
+
+.embedding-block {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.embedding-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.embedding-card,
+.embedding-animation-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  padding: 0.75rem;
+}
+
+.embedding-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.embedding-card-head h3 {
+  margin: 0;
+}
+
+.embedding-canvas,
+.embedding-animation-canvas {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fbf8f2;
+  display: block;
+}
+
+.embedding-canvas {
+  aspect-ratio: 1 / 1;
+  height: auto;
+}
+
+.embedding-animation-canvas {
+  aspect-ratio: 920 / 340;
+  height: auto;
+}
+
+.embedding-animation-canvas-full {
+  aspect-ratio: 1440 / 720;
+}
+
+.clickable-canvas {
+  cursor: pointer;
+}
+
+.cosmograph-block {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.cosmograph-canvas-wrap {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #111315;
+}
+
+.cosmograph-canvas {
+  width: 100%;
+  display: block;
+  background: #111315;
 }
 
 .stacked-logo-block {

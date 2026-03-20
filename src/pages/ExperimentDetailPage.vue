@@ -1,19 +1,21 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { Chart, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, LineController } from 'chart.js';
+import { Chart, ScatterController, LinearScale, PointElement, LineElement, Tooltip, Legend, LineController } from 'chart.js';
 import { loadExperimentDetail, loadExperiments } from '../services/dataApi';
 
-Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, LineController);
+Chart.register(ScatterController, LinearScale, PointElement, LineElement, Tooltip, Legend, LineController);
 
 const route = useRoute();
 const detail = ref(null);
 const loading = ref(true);
 const searchQuery = ref('');
+const traceMode = ref('20');
 const chartCanvas = ref(null);
 let chart = null;
 
 const expId = computed(() => String(route.params.expId || ''));
+const tracePalette = ['#197278', '#c44536', '#264653', '#2a9d8f', '#e76f51', '#283d3b', '#f4a261', '#5f0f40', '#7f5539', '#3d405b', '#8d99ae', '#b56576'];
 
 const sourceDoi = computed(() => {
   const doi = detail.value?.exp?.doi;
@@ -41,31 +43,165 @@ const hasAnalysis = computed(() => {
   return Boolean(detail.value.motif || detail.value.logo_url || detail.value.mhc_motif || detail.value.mhc_logo_url || detail.value.binding);
 });
 
+const trajectorySummary = computed(() => detail.value?.trajectory_summary || null);
+
+const roundLabels = computed(() => trajectorySummary.value?.rounds?.map((round) => round.label) || []);
+const showLineLegend = computed(() => (trajectorySummary.value?.trace_count || 0) <= 24);
+const pointRadius = computed(() => {
+  const totalPoints = trajectorySummary.value?.distribution_points?.length || 0;
+  if (totalPoints > 40000) return 0.9;
+  if (totalPoints > 20000) return 1.1;
+  if (totalPoints > 10000) return 1.25;
+  return 1.5;
+});
+const availableTraceCount = computed(() => trajectorySummary.value?.trace_lines?.length || 0);
+const visibleTraceLines = computed(() => {
+  const traces = trajectorySummary.value?.trace_lines || [];
+  if (traceMode.value === 'all') return traces;
+
+  const limit = Number(traceMode.value || 0);
+  if (!Number.isFinite(limit) || limit <= 0) return [];
+  return traces.slice(0, limit);
+});
+const visibleTraceCount = computed(() => visibleTraceLines.value.length + (highlightedTrace.value ? 1 : 0));
+
+const highlightedTrace = computed(() => {
+  const q = searchQuery.value.trim().toUpperCase();
+  if (!q || !trajectorySummary.value) return null;
+
+  const matched = peptides.value.find((item) => String(item.peptide || '').toUpperCase() === q);
+  if (!matched) return null;
+
+  const points = (trajectorySummary.value.rounds || []).map((round, index) => {
+    const rawValue = Number(matched[round.key] ?? 0);
+    return {
+      x: index,
+      y: Math.log10(Math.max(rawValue, 0) + 1),
+      raw: rawValue,
+      round_key: round.key,
+      round_label: round.label,
+    };
+  });
+
+  return {
+    peptide: matched.peptide,
+    points,
+  };
+});
+
 const chartDatasets = computed(() => {
-  return peptides.value.slice(0, 10).map((pep, index) => ({
-    label: pep.peptide,
-    data: [pep.naive || 0, pep.r1 || 0, pep.r2 || 0, pep.r3 || 0, pep.r4 || 0],
-    borderColor: ['#197278', '#edddd4', '#c44536', '#283d3b', '#772e25', '#f4a261', '#2a9d8f', '#e76f51', '#264653', '#a8dadc'][index % 10],
-    backgroundColor: 'transparent',
-    tension: 0.2,
-  }));
+  if (!trajectorySummary.value) return [];
+
+  const datasets = [
+    {
+      type: 'scatter',
+      label: 'All peptides',
+      data: trajectorySummary.value.distribution_points || [],
+      backgroundColor: 'rgba(25, 114, 120, 0.28)',
+      borderColor: 'rgba(25, 114, 120, 0.28)',
+      pointRadius: pointRadius.value,
+      pointHoverRadius: Math.max(pointRadius.value + 1.2, 2.2),
+      showLine: false,
+    },
+  ];
+
+  if (highlightedTrace.value) {
+    datasets.push({
+      type: 'line',
+      label: `${highlightedTrace.value.peptide} (matched)`,
+      data: highlightedTrace.value.points,
+      borderColor: '#111111',
+      backgroundColor: '#111111',
+      borderWidth: 2.4,
+      pointRadius: 3,
+      pointHoverRadius: 4,
+      tension: 0.2,
+    });
+  }
+
+  visibleTraceLines.value.forEach((trace, index) => {
+    if (highlightedTrace.value?.peptide === trace.peptide) return;
+
+    datasets.push({
+      type: 'line',
+      label: trace.peptide,
+      data: trace.points,
+      borderColor: tracePalette[index % tracePalette.length],
+      backgroundColor: tracePalette[index % tracePalette.length],
+      borderWidth: 1.8,
+      pointRadius: 2.2,
+      pointHoverRadius: 3,
+      tension: 0.2,
+    });
+  });
+
+  return datasets;
 });
 
 function drawChart() {
-  if (!chartCanvas.value || !detail.value) return;
+  if (!chartCanvas.value || !detail.value || !trajectorySummary.value) return;
   if (chart) chart.destroy();
 
   chart = new Chart(chartCanvas.value, {
-    type: 'line',
+    type: 'scatter',
     data: {
-      labels: ['Naive', 'R1', 'R2', 'R3', 'R4'],
       datasets: chartDatasets.value,
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      parsing: false,
       plugins: {
-        legend: { position: 'right', labels: { boxWidth: 10 } },
+        legend: {
+          display: showLineLegend.value,
+          position: 'right',
+          labels: {
+            boxWidth: 10,
+            filter: (item, data) => data.datasets[item.datasetIndex]?.type === 'line',
+          },
+        },
+        tooltip: {
+          callbacks: {
+            label(context) {
+              const raw = context.raw || {};
+              if (context.dataset.type === 'scatter') {
+                return `${raw.round_label}: ${Number(raw.raw || 0).toLocaleString()} counts`;
+              }
+              return `${context.dataset.label} • ${raw.round_label}: ${Number(raw.raw || 0).toLocaleString()}`;
+            },
+          },
+        },
+      },
+      scales: {
+        x: {
+          type: 'linear',
+          min: -0.45,
+          max: Math.max((roundLabels.value.length || 1) - 0.55, 0.45),
+          ticks: {
+            stepSize: 1,
+            callback(value) {
+              const index = Number(value);
+              return Number.isInteger(index) ? (roundLabels.value[index] || '') : '';
+            },
+          },
+          title: {
+            display: true,
+            text: 'Selection round',
+          },
+          grid: {
+            color: '#ebe3d7',
+          },
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'log10(count + 1)',
+          },
+          suggestedMax: (trajectorySummary.value?.max_log_count || 0) + 0.35,
+          grid: {
+            color: '#ebe3d7',
+          },
+        },
       },
     },
   });
@@ -101,7 +237,7 @@ async function loadDetail() {
 }
 
 watch(expId, () => loadDetail());
-watch(peptides, async () => {
+watch([trajectorySummary, searchQuery, traceMode], async () => {
   if (loading.value) return;
   await nextTick();
   drawChart();
@@ -208,16 +344,61 @@ onBeforeUnmount(() => {
 
     <section class="panel">
       <div class="toolbar">
-        <h2>Top Peptides (Default sorted by R3)</h2>
+        <h2>Peptide Enrichment Trajectories</h2>
         <div class="toolbar-right">
           <label>
-            Exact peptide
+            Trace overlay
+            <select v-model="traceMode">
+              <option value="0">Points only</option>
+              <option value="20">Top 20 traces</option>
+              <option value="50">Top 50 traces</option>
+              <option value="100">Top 100 traces</option>
+              <option value="all">All exported traces</option>
+            </select>
+          </label>
+          <label>
+            Highlight peptide from table
             <input v-model="searchQuery" placeholder="e.g. LLFGYPVYV" />
           </label>
         </div>
       </div>
 
-      <div class="chart-wrap"><canvas ref="chartCanvas" /></div>
+      <p class="subtle chart-note" v-if="trajectorySummary">
+        {{ trajectorySummary.distribution_mode === 'all' ? 'All peptides are rendered as points.' : 'A stable high-density peptide sample is rendered as points for performance.' }}
+        Colored lines track as many high-information trajectories as the browser can reasonably handle, and the y-axis uses log10(count + 1) so low-abundance and highly enriched peptides remain visible on the same plot.
+      </p>
+      <p class="subtle chart-note" v-if="trajectorySummary">
+        Peptides with any non-zero count: {{ Number(trajectorySummary.total_peptides || 0).toLocaleString() }}.
+        Rendered point peptides: {{ Number(trajectorySummary.sampled_peptides || 0).toLocaleString() }}.
+        Exported traces: {{ trajectorySummary.trace_count || 0 }}.
+        Visible traces: {{ visibleTraceCount }}.
+      </p>
+
+      <div v-if="trajectorySummary" class="chart-wrap trajectory-chart"><canvas ref="chartCanvas" /></div>
+      <p v-else class="subtle">Trajectory summary is not available for this experiment yet.</p>
+
+      <article v-if="detail.landscape_map?.url" class="analysis-card landscape-card">
+        <div class="title-row">
+          <h3>Hamming Distance UMAP</h3>
+          <span class="pill">{{ detail.landscape_map.method }}</span>
+        </div>
+        <p class="subtle chart-note">
+          Static 2D landscape computed offline from pairwise peptide Hamming distance. Clusters are assigned with Hamming-distance k-medoids so local groups stay consistent across rounds.
+        </p>
+        <p class="subtle chart-note">
+          Sampled peptides: {{ Number(detail.landscape_map.sampled_peptides || 0).toLocaleString() }}.
+          Clusters: {{ detail.landscape_map.cluster_count || 0 }}.
+          Rounds: {{ (detail.landscape_map.available_rounds || []).join(', ') }}.
+        </p>
+        <img class="binding-plot" :src="detail.landscape_map.url" alt="Offline Hamming-distance UMAP landscape" />
+      </article>
+
+      <div class="toolbar compact-toolbar">
+        <h2>Top Peptides (Default sorted by R3)</h2>
+        <div class="toolbar-right" v-if="detail.embedding_summary">
+          <RouterLink class="btn ghost" :to="`/embedding/${detail.exp.exp_id}`">Open Full Screen Cosmograph</RouterLink>
+        </div>
+      </div>
 
       <div class="table-wrap">
         <table>
