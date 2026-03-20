@@ -1050557,7 +1050557,7 @@
   },
   "landscape_map": {
     "url": "/assets/landscape_maps/TCR1A_9mer_A0201.png",
-    "method": "umap-hamming",
+    "method": "umap-hamming-2d",
     "metric": "normalized-hamming",
     "cluster_method": "k-medoids-hamming",
     "sampled_peptides": 1200,
@@ -1050569,6 +1050569,21 @@
       "R4"
     ],
     "cluster_count": 5
+  },
+  "landscape_3d": {
+    "url": "/data/landscape3d/TCR1A_9mer_A0201.json",
+    "method": "umap-hamming-3d",
+    "metric": "normalized-hamming",
+    "cluster_method": "k-medoids-hamming",
+    "sampled_peptides": 1200,
+    "cluster_count": 5,
+    "available_rounds": [
+      "Naive",
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ]
   },
   "motif": {
     "exp_id": "TCR1A_9mer_A0201",
@@ -1050992,7 +1051007,7 @@
       "A0201"
     ],
     "source_class": "classI",
-    "generated_at": "2026-03-19T21:49:14",
+    "generated_at": "2026-03-20T01:13:30",
     "amino_acids": [
       "A",
       "C",
@@ -1051385,5 +1051400,5 @@
     },
     "plot_url": "/assets/binding_plots/10119_8mer_TCR1.csv_binding_dist.png"
   },
-  "generated_at": "2026-03-19T21:49:38"
+  "generated_at": "2026-03-20T01:13:58"
 }

@@ -32,6 +32,10 @@ export function loadStructures(expId) {
   return fetchJson(`${DATA_ROOT}/structures/${expId}.json`, null);
 }
 
+export function loadLandscape3d(expId) {
+  return fetchJson(`${DATA_ROOT}/landscape3d/${expId}.json`, null);
+}
+
 export function loadManifest() {
   return fetchJson(`${DATA_ROOT}/manifest.json`, null);
 }

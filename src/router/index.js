@@ -6,6 +6,7 @@ const ExperimentDetailPage = () => import('../pages/ExperimentDetailPage.vue');
 const ComparePage = () => import('../pages/ComparePage.vue');
 const StructurePage = () => import('../pages/StructurePage.vue');
 const EmbeddingPage = () => import('../pages/EmbeddingPage.vue');
+const Landscape3DPage = () => import('../pages/Landscape3DPage.vue');
 const AboutPage = () => import('../pages/AboutPage.vue');
 const DataPage = () => import('../pages/DataPage.vue');
 const CitationPage = () => import('../pages/CitationPage.vue');
@@ -19,6 +20,7 @@ const router = createRouter({
     { path: '/experiments', name: 'experiments', component: ExperimentsPage },
     { path: '/exp/:expId', name: 'experiment-detail', component: ExperimentDetailPage, props: true },
     { path: '/embedding/:expId', name: 'embedding-animation', component: EmbeddingPage, props: true },
+    { path: '/umap3d/:expId', name: 'landscape-3d', component: Landscape3DPage, props: true },
     { path: '/compare', name: 'compare', component: ComparePage },
     { path: '/structure/:expId', name: 'structure', component: StructurePage, props: true },
     { path: '/about', name: 'about', component: AboutPage },

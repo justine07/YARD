@@ -380,7 +380,10 @@ onBeforeUnmount(() => {
       <article v-if="detail.landscape_map?.url" class="analysis-card landscape-card">
         <div class="title-row">
           <h3>Hamming Distance UMAP</h3>
-          <span class="pill">{{ detail.landscape_map.method }}</span>
+          <div class="actions">
+            <span class="pill">{{ detail.landscape_map.method }}</span>
+            <RouterLink v-if="detail.landscape_3d?.url" class="btn ghost" :to="`/umap3d/${detail.exp.exp_id}`">Open 3D UMAP</RouterLink>
+          </div>
         </div>
         <p class="subtle chart-note">
           Static 2D landscape computed offline from pairwise peptide Hamming distance. Clusters are assigned with Hamming-distance k-medoids so local groups stay consistent across rounds.

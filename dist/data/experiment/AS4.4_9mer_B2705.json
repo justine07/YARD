@@ -188183,7 +188183,7 @@
   },
   "landscape_map": {
     "url": "/assets/landscape_maps/AS4.4_9mer_B2705.png",
-    "method": "umap-hamming",
+    "method": "umap-hamming-2d",
     "metric": "normalized-hamming",
     "cluster_method": "k-medoids-hamming",
     "sampled_peptides": 900,
@@ -188194,6 +188194,20 @@
       "R4"
     ],
     "cluster_count": 5
+  },
+  "landscape_3d": {
+    "url": "/data/landscape3d/AS4.4_9mer_B2705.json",
+    "method": "umap-hamming-3d",
+    "metric": "normalized-hamming",
+    "cluster_method": "k-medoids-hamming",
+    "sampled_peptides": 900,
+    "cluster_count": 5,
+    "available_rounds": [
+      "R1",
+      "R2",
+      "R3",
+      "R4"
+    ]
   },
   "motif": {
     "exp_id": "AS4.4_9mer_B2705",
@@ -188636,7 +188650,7 @@
       "B2705"
     ],
     "source_class": "classI",
-    "generated_at": "2026-03-19T21:49:14",
+    "generated_at": "2026-03-20T01:13:30",
     "amino_acids": [
       "A",
       "C",
@@ -189073,5 +189087,5 @@
     },
     "plot_url": "/assets/binding_plots/uniques_stats_AS4.4-91mer.csv_binding_dist.png"
   },
-  "generated_at": "2026-03-19T21:50:37"
+  "generated_at": "2026-03-20T01:15:10"
 }
