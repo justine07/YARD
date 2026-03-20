@@ -17,7 +17,7 @@ const activeCluster = ref('all');
 const searchQuery = ref('');
 const rotationX = ref(-0.45);
 const rotationY = ref(0.72);
-const zoom = ref(1);
+const zoom = ref(0.72);
 const stats = ref({ visible: 0, total: 0 });
 let pointer = null;
 let frameHandle = null;
@@ -30,6 +30,18 @@ const clusterIds = computed(() => {
   return Array.from(ids).sort((a, b) => a - b);
 });
 const searchToken = computed(() => searchQuery.value.trim().toUpperCase());
+const clusterSummary = computed(() => {
+  const counts = new Map();
+  points.value.forEach((point) => {
+    const cluster = Number(point.k || 0);
+    counts.set(cluster, (counts.get(cluster) || 0) + 1);
+  });
+  return clusterIds.value.map((clusterId) => ({
+    id: clusterId,
+    count: counts.get(clusterId) || 0,
+    color: clusterColor(clusterId, 0.92),
+  }));
+});
 
 function clusterColor(clusterIndex, alpha = 1) {
   const hex = palette[Number(clusterIndex || 0) % palette.length];
@@ -85,6 +97,7 @@ function draw() {
 
   const cx = width / 2;
   const cy = height / 2 + 10;
+  const baseScale = Math.min(width, height) * 0.19;
   const visible = [];
 
   for (const point of points.value) {
@@ -95,12 +108,12 @@ function draw() {
 
     const matched = searchToken.value && String(point.p || '').toUpperCase().includes(searchToken.value);
     const rotated = rotatePoint(point);
-    const depth = rotated.z + 3.2;
-    const perspective = zoom.value * (240 / Math.max(depth, 0.8));
+    const depth = rotated.z + 2.8;
+    const perspective = zoom.value * (1.8 / Math.max(depth, 1.15));
 
     visible.push({
-      x: cx + (rotated.x * perspective * 120),
-      y: cy - (rotated.y * perspective * 120),
+      x: cx + (rotated.x * perspective * baseScale),
+      y: cy - (rotated.y * perspective * baseScale),
       z: rotated.z,
       raw,
       norm: raw > 0 ? Math.log10(raw + 1) / maxLog : 0,
@@ -112,8 +125,8 @@ function draw() {
   visible.sort((a, b) => a.z - b.z);
 
   for (const point of visible) {
-    const radius = point.raw > 0 ? 2 + (point.norm * 7.5) : 1.2;
-    const alpha = point.raw > 0 ? 0.28 + (point.norm * 0.62) : 0.08;
+    const radius = point.raw > 0 ? 1.6 + (point.norm * 4.8) : 0.9;
+    const alpha = point.raw > 0 ? 0.74 + (point.norm * 0.18) : 0.18;
     ctx.beginPath();
     ctx.fillStyle = clusterColor(point.cluster, alpha);
     ctx.arc(point.x, point.y, radius, 0, Math.PI * 2);
@@ -123,7 +136,7 @@ function draw() {
       ctx.beginPath();
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.96)';
       ctx.lineWidth = 1.4;
-      ctx.arc(point.x, point.y, radius + 2.2, 0, Math.PI * 2);
+      ctx.arc(point.x, point.y, radius + 2.4, 0, Math.PI * 2);
       ctx.stroke();
     }
   }
@@ -169,14 +182,14 @@ function onPointerUp() {
 
 function onWheel(event) {
   event.preventDefault();
-  zoom.value = Math.max(0.45, Math.min(2.4, zoom.value * (event.deltaY > 0 ? 0.92 : 1.08)));
+  zoom.value = Math.max(0.38, Math.min(1.8, zoom.value * (event.deltaY > 0 ? 0.92 : 1.08)));
   requestDraw();
 }
 
 function resetView() {
   rotationX.value = -0.45;
   rotationY.value = 0.72;
-  zoom.value = 1;
+  zoom.value = 0.72;
   requestDraw();
 }
 
@@ -238,6 +251,13 @@ onBeforeUnmount(() => {
       Method: {{ data.method }}.
       Cluster method: {{ data.cluster_method }}.
     </p>
+
+    <div class="cluster-legend">
+      <div v-for="item in clusterSummary" :key="item.id" class="cluster-legend-item">
+        <span class="cluster-swatch" :style="{ backgroundColor: item.color }"></span>
+        <span>C{{ item.id + 1 }} ({{ Number(item.count).toLocaleString() }})</span>
+      </div>
+    </div>
 
     <div
       ref="wrapper"
