@@ -24,6 +24,7 @@ let frameHandle = null;
 
 const rounds = computed(() => props.data?.rounds || []);
 const points = computed(() => props.data?.points || []);
+const clusterLabels = computed(() => props.data?.cluster_labels || {});
 const clusterIds = computed(() => {
   const ids = new Set();
   points.value.forEach((point) => ids.add(Number(point.k || 0)));
@@ -41,7 +42,7 @@ const clusterSummary = computed(() => {
       id: clusterId,
       count: counts.get(clusterId) || 0,
       color: clusterColor(clusterId, 0.92),
-      label: clusterShortLabel(clusterId),
+      label: clusterLabels.value[String(clusterId)] || clusterShortLabel(clusterId),
     }))
     .sort((left, right) => {
       if (right.count !== left.count) return right.count - left.count;
@@ -232,7 +233,7 @@ onBeforeUnmount(() => {
           Cluster
           <select v-model="activeCluster">
             <option value="all">All clusters</option>
-            <option v-for="clusterId in clusterIds" :key="clusterId" :value="clusterId">{{ clusterLabel(clusterId) }}</option>
+            <option v-for="clusterId in clusterIds" :key="clusterId" :value="clusterId">{{ labelForCluster(clusterId) }}</option>
           </select>
         </label>
         <label>
@@ -245,12 +246,14 @@ onBeforeUnmount(() => {
 
     <p class="subtle chart-note">
       Offline 3D UMAP built from pairwise Hamming distance. Cluster colors now follow the report's fast_hamming path
-      (odd/even hash buckets with greedy Hamming &lt;= 1 assignment), while the 3D layout stays the same so you can still inspect how later rounds occupy the original sequence landscape.
+      (odd/even hash buckets with greedy Hamming &lt;= 1 assignment), then the raw clusters are collapsed into at most six display groups so the 3D layout stays readable.
     </p>
     <p class="subtle chart-note">
       Visible nodes: {{ Number(stats.visible || 0).toLocaleString() }} / {{ Number(stats.total || 0).toLocaleString() }}.
       Method: {{ data.method }}.
       Cluster method: {{ data.cluster_method }}.
+      Raw fast_hamming clusters: {{ Number(data.raw_cluster_count || data.cluster_count || 0).toLocaleString() }}.
+      Display groups: {{ Number(data.cluster_count || 0).toLocaleString() }}.
       <template v-if="Number(data.unassigned_count || 0) > 0">
         Unassigned peptides: {{ Number(data.unassigned_count || 0).toLocaleString() }}.
       </template>
@@ -278,3 +281,6 @@ onBeforeUnmount(() => {
     </div>
   </section>
 </template>
+function labelForCluster(clusterId) {
+  return clusterLabels.value[String(clusterId)] || clusterLabel(clusterId);
+}
