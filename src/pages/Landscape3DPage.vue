@@ -48,7 +48,7 @@ onMounted(() => loadPage());
         </div>
       </div>
       <p class="subtle">
-        Full-screen 3D view of the offline Hamming-distance UMAP. Rotate the cloud to inspect whether later-round peptides occupy only part of the original sequence landscape.
+        Full-screen 3D view of the offline Hamming-distance UMAP. The 3D geometry stays the same, but cluster colors now follow the report's fast_hamming path so we can track which original sequence groups survive later rounds.
       </p>
     </section>
 

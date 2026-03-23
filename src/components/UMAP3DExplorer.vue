@@ -1,5 +1,6 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { clusterColor, clusterLabel, clusterShortLabel, sortClusterIds } from '../utils/clusterColors';
 
 const props = defineProps({
   data: {
@@ -8,7 +9,6 @@ const props = defineProps({
   },
 });
 
-const palette = ['#49c6b8', '#ff8a5b', '#7c8cf8', '#f4d35e', '#ea638c', '#86baa1'];
 const wrapper = ref(null);
 const canvasRef = ref(null);
 const activeRound = ref(0);
@@ -27,7 +27,7 @@ const points = computed(() => props.data?.points || []);
 const clusterIds = computed(() => {
   const ids = new Set();
   points.value.forEach((point) => ids.add(Number(point.k || 0)));
-  return Array.from(ids).sort((a, b) => a - b);
+  return sortClusterIds(Array.from(ids));
 });
 const searchToken = computed(() => searchQuery.value.trim().toUpperCase());
 const clusterSummary = computed(() => {
@@ -36,20 +36,20 @@ const clusterSummary = computed(() => {
     const cluster = Number(point.k || 0);
     counts.set(cluster, (counts.get(cluster) || 0) + 1);
   });
-  return clusterIds.value.map((clusterId) => ({
-    id: clusterId,
-    count: counts.get(clusterId) || 0,
-    color: clusterColor(clusterId, 0.92),
-  }));
+  return clusterIds.value
+    .map((clusterId) => ({
+      id: clusterId,
+      count: counts.get(clusterId) || 0,
+      color: clusterColor(clusterId, 0.92),
+      label: clusterShortLabel(clusterId),
+    }))
+    .sort((left, right) => {
+      if (right.count !== left.count) return right.count - left.count;
+      return Number(left.id) - Number(right.id);
+    });
 });
-
-function clusterColor(clusterIndex, alpha = 1) {
-  const hex = palette[Number(clusterIndex || 0) % palette.length];
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-}
+const visibleLegendItems = computed(() => clusterSummary.value.slice(0, 12));
+const hiddenLegendCount = computed(() => Math.max(clusterSummary.value.length - visibleLegendItems.value.length, 0));
 
 function ensureCanvas() {
   const host = wrapper.value;
@@ -232,7 +232,7 @@ onBeforeUnmount(() => {
           Cluster
           <select v-model="activeCluster">
             <option value="all">All clusters</option>
-            <option v-for="clusterId in clusterIds" :key="clusterId" :value="clusterId">Cluster {{ clusterId + 1 }}</option>
+            <option v-for="clusterId in clusterIds" :key="clusterId" :value="clusterId">{{ clusterLabel(clusterId) }}</option>
           </select>
         </label>
         <label>
@@ -244,18 +244,25 @@ onBeforeUnmount(() => {
     </div>
 
     <p class="subtle chart-note">
-      Offline 3D UMAP built from pairwise Hamming distance. Cluster colors stay fixed across all rounds, so rotating the cloud makes it easier to inspect whether late-round peptides occupy only part of the original sequence landscape.
+      Offline 3D UMAP built from pairwise Hamming distance. Cluster colors now follow the report's fast_hamming path
+      (odd/even hash buckets with greedy Hamming &lt;= 1 assignment), while the 3D layout stays the same so you can still inspect how later rounds occupy the original sequence landscape.
     </p>
     <p class="subtle chart-note">
       Visible nodes: {{ Number(stats.visible || 0).toLocaleString() }} / {{ Number(stats.total || 0).toLocaleString() }}.
       Method: {{ data.method }}.
       Cluster method: {{ data.cluster_method }}.
+      <template v-if="Number(data.unassigned_count || 0) > 0">
+        Unassigned peptides: {{ Number(data.unassigned_count || 0).toLocaleString() }}.
+      </template>
     </p>
 
     <div class="cluster-legend">
-      <div v-for="item in clusterSummary" :key="item.id" class="cluster-legend-item">
+      <div v-for="item in visibleLegendItems" :key="item.id" class="cluster-legend-item">
         <span class="cluster-swatch" :style="{ backgroundColor: item.color }"></span>
-        <span>C{{ item.id + 1 }} ({{ Number(item.count).toLocaleString() }})</span>
+        <span>{{ item.label }} ({{ Number(item.count).toLocaleString() }})</span>
+      </div>
+      <div v-if="hiddenLegendCount > 0" class="cluster-legend-item">
+        <span>+ {{ hiddenLegendCount }} more clusters</span>
       </div>
     </div>
 

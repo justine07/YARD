@@ -386,11 +386,15 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <p class="subtle chart-note">
-          Static 2D landscape computed offline from pairwise peptide Hamming distance. Clusters are assigned with Hamming-distance k-medoids so local groups stay consistent across rounds.
+          Static 2D landscape computed offline from pairwise peptide Hamming distance. Cluster colors now follow the report's fast_hamming path
+          (odd/even hash buckets with greedy Hamming &lt;= 1 assignment), while the 2D layout stays the same for easy round-to-round comparison.
         </p>
         <p class="subtle chart-note">
           Sampled peptides: {{ Number(detail.landscape_map.sampled_peptides || 0).toLocaleString() }}.
           Clusters: {{ detail.landscape_map.cluster_count || 0 }}.
+          <template v-if="Number(detail.landscape_map.unassigned_count || 0) > 0">
+            Unassigned: {{ Number(detail.landscape_map.unassigned_count || 0).toLocaleString() }}.
+          </template>
           Rounds: {{ (detail.landscape_map.available_rounds || []).join(', ') }}.
         </p>
         <img class="binding-plot" :src="detail.landscape_map.url" alt="Offline Hamming-distance UMAP landscape" />
