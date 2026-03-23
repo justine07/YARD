@@ -386,15 +386,14 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <p class="subtle chart-note">
-          Static 2D landscape computed offline from pairwise peptide Hamming distance. Cluster colors now follow the report's fast_hamming path
-          (odd/even hash buckets with greedy Hamming &lt;= 1 assignment), then the raw clusters are collapsed into at most six display groups so the plot stays readable.
+          Static 2D landscape computed offline from peptide biochemical features: BLOSUM indices, hydrophobicity, and isoelectric point.
+          The axes are the first two UMAP dimensions, and colors come from HDBSCAN labels on that same 2D embedding.
         </p>
         <p class="subtle chart-note">
           Sampled peptides: {{ Number(detail.landscape_map.sampled_peptides || 0).toLocaleString() }}.
-          Raw clusters: {{ Number(detail.landscape_map.raw_cluster_count || detail.landscape_map.cluster_count || 0).toLocaleString() }}.
-          Display groups: {{ detail.landscape_map.cluster_count || 0 }}.
-          <template v-if="Number(detail.landscape_map.unassigned_count || 0) > 0">
-            Unassigned: {{ Number(detail.landscape_map.unassigned_count || 0).toLocaleString() }}.
+          Clusters: {{ detail.landscape_map.cluster_count || 0 }}.
+          <template v-if="Number(detail.landscape_map.noise_count || 0) > 0">
+            Noise: {{ Number(detail.landscape_map.noise_count || 0).toLocaleString() }}.
           </template>
           Rounds: {{ (detail.landscape_map.available_rounds || []).join(', ') }}.
         </p>

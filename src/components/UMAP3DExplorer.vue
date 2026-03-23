@@ -245,17 +245,16 @@ onBeforeUnmount(() => {
     </div>
 
     <p class="subtle chart-note">
-      Offline 3D UMAP built from pairwise Hamming distance. Cluster colors now follow the report's fast_hamming path
-      (odd/even hash buckets with greedy Hamming &lt;= 1 assignment), then the raw clusters are collapsed into at most six display groups so the 3D layout stays readable.
+      Offline 3D UMAP built from peptide biochemical features: BLOSUM indices, hydrophobicity, and isoelectric point.
+      Cluster colors now follow the report's UMAP + HDBSCAN path, while the 3D view uses the first three UMAP components so we can inspect the same sequence landscape interactively.
     </p>
     <p class="subtle chart-note">
       Visible nodes: {{ Number(stats.visible || 0).toLocaleString() }} / {{ Number(stats.total || 0).toLocaleString() }}.
       Method: {{ data.method }}.
       Cluster method: {{ data.cluster_method }}.
-      Raw fast_hamming clusters: {{ Number(data.raw_cluster_count || data.cluster_count || 0).toLocaleString() }}.
-      Display groups: {{ Number(data.cluster_count || 0).toLocaleString() }}.
-      <template v-if="Number(data.unassigned_count || 0) > 0">
-        Unassigned peptides: {{ Number(data.unassigned_count || 0).toLocaleString() }}.
+      Clusters: {{ Number(data.cluster_count || 0).toLocaleString() }}.
+      <template v-if="Number(data.noise_count || 0) > 0">
+        Noise peptides: {{ Number(data.noise_count || 0).toLocaleString() }}.
       </template>
     </p>
 

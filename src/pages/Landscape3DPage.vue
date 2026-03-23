@@ -48,7 +48,7 @@ onMounted(() => loadPage());
         </div>
       </div>
       <p class="subtle">
-        Full-screen 3D view of the offline Hamming-distance UMAP. The geometry stays the same, while fast_hamming-derived groups are compressed to six display colors so we can still see which original sequence neighborhoods survive later rounds.
+        Full-screen 3D view of the offline biochemical-feature UMAP. The colors come from HDBSCAN clusters on the first two UMAP dimensions, while the 3D view uses the first three dimensions of the same embedding.
       </p>
     </section>
 
