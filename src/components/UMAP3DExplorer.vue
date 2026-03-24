@@ -25,7 +25,11 @@ let frameHandle = null;
 const rounds = computed(() => props.data?.rounds || []);
 const points = computed(() => props.data?.points || []);
 const clusterLabels = computed(() => props.data?.cluster_labels || {});
+const visibleClusterIds = computed(() => new Set((props.data?.visible_cluster_ids || []).map((value) => Number(value))));
 const clusterIds = computed(() => {
+  if (visibleClusterIds.value.size > 0) {
+    return sortClusterIds(Array.from(visibleClusterIds.value));
+  }
   const ids = new Set();
   points.value.forEach((point) => ids.add(Number(point.k || 0)));
   return sortClusterIds(Array.from(ids));
@@ -35,6 +39,7 @@ const clusterSummary = computed(() => {
   const counts = new Map();
   points.value.forEach((point) => {
     const cluster = Number(point.k || 0);
+    if (visibleClusterIds.value.size > 0 && !visibleClusterIds.value.has(cluster)) return;
     counts.set(cluster, (counts.get(cluster) || 0) + 1);
   });
   return clusterIds.value
@@ -51,6 +56,10 @@ const clusterSummary = computed(() => {
 });
 const visibleLegendItems = computed(() => clusterSummary.value.slice(0, 12));
 const hiddenLegendCount = computed(() => Math.max(clusterSummary.value.length - visibleLegendItems.value.length, 0));
+
+function labelForCluster(clusterId) {
+  return clusterLabels.value[String(clusterId)] || clusterLabel(clusterId);
+}
 
 function ensureCanvas() {
   const host = wrapper.value;
@@ -103,6 +112,7 @@ function draw() {
 
   for (const point of points.value) {
     const cluster = Number(point.k || 0);
+    if (visibleClusterIds.value.size > 0 && !visibleClusterIds.value.has(cluster)) continue;
     if (activeCluster.value !== 'all' && cluster !== Number(activeCluster.value)) continue;
     const raw = Number(point.c?.[roundIndex] || 0);
     if (onlyNonZero.value && raw <= 0) continue;
@@ -245,16 +255,17 @@ onBeforeUnmount(() => {
     </div>
 
     <p class="subtle chart-note">
-      Offline 3D UMAP built from peptide biochemical features: BLOSUM indices, hydrophobicity, and isoelectric point.
-      Cluster colors now follow the report's UMAP + HDBSCAN path, while the 3D view uses the first three UMAP components so we can inspect the same sequence landscape interactively.
+      Offline 3D UMAP built from pairwise Hamming distance. Fast_hamming remains the real cluster assignment,
+      and this view renders only the largest clusters so the landscape stays readable without collapsing them into a fake `Other` group.
     </p>
     <p class="subtle chart-note">
       Visible nodes: {{ Number(stats.visible || 0).toLocaleString() }} / {{ Number(stats.total || 0).toLocaleString() }}.
       Method: {{ data.method }}.
       Cluster method: {{ data.cluster_method }}.
-      Clusters: {{ Number(data.cluster_count || 0).toLocaleString() }}.
-      <template v-if="Number(data.noise_count || 0) > 0">
-        Noise peptides: {{ Number(data.noise_count || 0).toLocaleString() }}.
+      Raw fast_hamming clusters: {{ Number(data.raw_cluster_count || data.cluster_count || 0).toLocaleString() }}.
+      Displayed top clusters: {{ Number((data.visible_cluster_ids || []).length || data.cluster_count || 0).toLocaleString() }}.
+      <template v-if="Number(data.unassigned_count || 0) > 0">
+        Unassigned peptides: {{ Number(data.unassigned_count || 0).toLocaleString() }}.
       </template>
     </p>
 
@@ -280,6 +291,3 @@ onBeforeUnmount(() => {
     </div>
   </section>
 </template>
-function labelForCluster(clusterId) {
-  return clusterLabels.value[String(clusterId)] || clusterLabel(clusterId);
-}

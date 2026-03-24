@@ -12,11 +12,11 @@ export function clusterColor(clusterId, alpha = 1) {
 }
 
 export function clusterLabel(clusterId) {
-  return Number(clusterId) < 0 ? 'Noise' : `Cluster ${Number(clusterId) + 1}`;
+  return Number(clusterId) < 0 ? 'Unassigned' : `Cluster ${Number(clusterId) + 1}`;
 }
 
 export function clusterShortLabel(clusterId) {
-  return Number(clusterId) < 0 ? 'Noise' : `C${Number(clusterId) + 1}`;
+  return Number(clusterId) < 0 ? 'Unassigned' : `C${Number(clusterId) + 1}`;
 }
 
 export function sortClusterIds(ids) {

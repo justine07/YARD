@@ -48,7 +48,8 @@ onMounted(() => loadPage());
         </div>
       </div>
       <p class="subtle">
-        Full-screen 3D view of the offline biochemical-feature UMAP. The colors come from HDBSCAN clusters on the first two UMAP dimensions, while the 3D view uses the first three dimensions of the same embedding.
+        Full-screen 3D view of the offline Hamming-distance UMAP. Fast_hamming remains the real cluster assignment,
+        and the viewer renders only the largest clusters so the retained neighborhoods are easier to inspect.
       </p>
     </section>
 
