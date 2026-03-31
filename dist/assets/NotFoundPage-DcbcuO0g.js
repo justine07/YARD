@@ -1,1 +1,0 @@
-import{_ as n,c as o,b as t,g as s}from"./index-Cz2Eh9GU.js";const c={},r={class:"panel content-page"};function a(l,e){return s(),o("section",r,[...e[0]||(e[0]=[t("h1",null,"Page Not Found",-1),t("p",null,"This route does not exist in the current SPA build.",-1)])])}const d=n(c,[["render",a]]);export{d as default};
