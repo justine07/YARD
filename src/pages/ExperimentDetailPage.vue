@@ -377,31 +377,6 @@ onBeforeUnmount(() => {
       <div v-if="trajectorySummary" class="chart-wrap trajectory-chart"><canvas ref="chartCanvas" /></div>
       <p v-else class="subtle">Trajectory summary is not available for this experiment yet.</p>
 
-      <article v-if="detail.landscape_map?.url" class="analysis-card landscape-card">
-        <div class="title-row">
-          <h3>Hamming Distance UMAP</h3>
-          <div class="actions">
-            <span class="pill">{{ detail.landscape_map.method }}</span>
-            <RouterLink v-if="detail.landscape_3d?.url" class="btn ghost" :to="`/umap3d/${detail.exp.exp_id}`">Open 3D UMAP</RouterLink>
-          </div>
-        </div>
-        <p class="subtle chart-note">
-          Static 2D landscape computed offline from pairwise peptide Hamming distance. Cluster colors now follow the report's fast_hamming path
-          (odd/even hash buckets with greedy Hamming &lt;= 1 assignment). The backend keeps the real fast_hamming clusters,
-          while the figure only renders the largest clusters for readability.
-        </p>
-        <p class="subtle chart-note">
-          Sampled peptides: {{ Number(detail.landscape_map.sampled_peptides || 0).toLocaleString() }}.
-          Raw clusters: {{ Number(detail.landscape_map.raw_cluster_count || detail.landscape_map.cluster_count || 0).toLocaleString() }}.
-          Displayed top clusters: {{ Number((detail.landscape_map.visible_cluster_ids || []).length || 0).toLocaleString() }}.
-          <template v-if="Number(detail.landscape_map.unassigned_count || 0) > 0">
-            Unassigned: {{ Number(detail.landscape_map.unassigned_count || 0).toLocaleString() }}.
-          </template>
-          Rounds: {{ (detail.landscape_map.available_rounds || []).join(', ') }}.
-        </p>
-        <img class="binding-plot" :src="detail.landscape_map.url" alt="Offline Hamming-distance UMAP landscape" />
-      </article>
-
       <div class="toolbar compact-toolbar">
         <h2>Top Peptides (Default sorted by R3)</h2>
         <div class="toolbar-right" v-if="detail.embedding_summary">
