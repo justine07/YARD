@@ -272,8 +272,8 @@ onBeforeUnmount(() => {
         <span v-else>unpublish</span>
       </p>
 
-      <details class="sequence-details">
-        <summary>View TCR Sequence Details (CDR3, V/J Genes)</summary>
+      <div class="sequence-details">
+        <h3>TCR Sequence Details (CDR3, V/J Genes)</h3>
         <div class="sequence-grid">
           <div class="seq-item"><strong>TRAV:</strong> {{ detail.exp.trav || '-' }}</div>
           <div class="seq-item"><strong>CDR3a:</strong> <span class="mono">{{ detail.exp.cdr3a || '-' }}</span></div>
@@ -282,7 +282,7 @@ onBeforeUnmount(() => {
           <div class="seq-item"><strong>CDR3b:</strong> <span class="mono">{{ detail.exp.cdr3b || '-' }}</span></div>
           <div class="seq-item"><strong>TRBJ:</strong> {{ detail.exp.trbj || '-' }}</div>
         </div>
-      </details>
+      </div>
     </section>
 
     <section class="panel" v-if="hasAnalysis">
