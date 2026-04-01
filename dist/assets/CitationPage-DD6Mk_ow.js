@@ -1,1 +1,0 @@
-import{_ as o,c as a,b as t,g as n}from"./index-yTJcBdJJ.js";const s={},c={class:"panel content-page"};function r(i,e){return n(),a("section",c,[...e[0]||(e[0]=[t("h1",null,"Citation",-1),t("p",null,"If you use this platform, cite both the database resource and the original publications for each selected experiment.",-1)])])}const p=o(s,[["render",r]]);export{p as default};

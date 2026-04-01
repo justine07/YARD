@@ -1,18 +1,1 @@
-{
-  "exp_id": "226_13mer_I-Ek",
-  "structures": [
-    {
-      "id": "3QIU",
-      "filename": "3QIU.trunc.fit.pdb",
-      "url": "/assets/pdb/3QIU.trunc.fit.pdb",
-      "epitope": "ADLIAYLKQATKG"
-    },
-    {
-      "id": "3QIW",
-      "filename": "3QIW.trunc.fit.pdb",
-      "url": "/assets/pdb/3QIW.trunc.fit.pdb",
-      "epitope": "ADLIAYLEQATKG"
-    }
-  ],
-  "generated_at": "2026-03-31T17:51:23"
-}
+{"exp_id":"226_13mer_I-Ek","structures":[{"id":"3QIU","filename":"3QIU.trunc.fit.pdb","url":"/assets/pdb/3QIU.trunc.fit.pdb","epitope":"ADLIAYLKQATKG"},{"id":"3QIW","filename":"3QIW.trunc.fit.pdb","url":"/assets/pdb/3QIW.trunc.fit.pdb","epitope":"ADLIAYLEQATKG"}],"generated_at":"2026-04-01T10:53:37"}

@@ -5,7 +5,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite --port=3000 --host=0.0.0.0",
-        "build:data": "bash ../scripts/run_repo_python.sh ../scripts/compute_mhc_motifs.py && bash ../scripts/run_repo_python.sh ../scripts/build_static_data.py --visibility-mode doi-or-whitelist --output-data ./public/data --output-assets ./public/assets",
+        "minify:data": "node ./scripts/minify-public-json.mjs",
+        "build:data": "bash ../scripts/run_repo_python.sh ../scripts/compute_mhc_motifs.py && bash ../scripts/run_repo_python.sh ../scripts/build_static_data.py --visibility-mode doi-or-whitelist --output-data ./public/data --output-assets ./public/assets && npm run minify:data",
         "build": "vite build",
         "preview": "vite preview"
     },

@@ -1,18 +1,1 @@
-{
-  "exp_id": "5c.c7_13mer_I-Ek",
-  "structures": [
-    {
-      "id": "4P2Q",
-      "filename": "4P2Q.trunc.fit.pdb",
-      "url": "/assets/pdb/4P2Q.trunc.fit.pdb",
-      "epitope": "ADGLAYFRSSFK"
-    },
-    {
-      "id": "4P2R",
-      "filename": "4P2R.trunc.fit.pdb",
-      "url": "/assets/pdb/4P2R.trunc.fit.pdb",
-      "epitope": "ANGVAFFLTPFK"
-    }
-  ],
-  "generated_at": "2026-03-31T17:51:13"
-}
+{"exp_id":"5c.c7_13mer_I-Ek","structures":[{"id":"4P2Q","filename":"4P2Q.trunc.fit.pdb","url":"/assets/pdb/4P2Q.trunc.fit.pdb","epitope":"ADGLAYFRSSFK"},{"id":"4P2R","filename":"4P2R.trunc.fit.pdb","url":"/assets/pdb/4P2R.trunc.fit.pdb","epitope":"ANGVAFFLTPFK"}],"generated_at":"2026-04-01T10:53:30"}
