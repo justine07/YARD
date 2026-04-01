@@ -572,6 +572,26 @@ th {
   max-width: 820px;
 }
 
+.about-sections {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.about-sections h2 {
+  margin-bottom: 0.45rem;
+}
+
+.about-sections p {
+  margin: 0;
+  line-height: 1.65;
+}
+
+.about-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.65;
+}
+
 .viewer-3d-shell {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.12);
