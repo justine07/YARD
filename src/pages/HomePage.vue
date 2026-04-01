@@ -122,10 +122,29 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section class="hero">
-    <p class="eyebrow">TCR-pMHC Atlas</p>
-    <h1>Static Vue SPA for TCR Landscape Exploration</h1>
-    <p>Browse experiments, motifs, enrichment trajectories, and structure assets directly from static JSON files.</p>
+  <section class="hero home-hero">
+    <div class="home-hero-copy">
+      <p class="eyebrow">YARD</p>
+      <h1>TCR Yeast Display Database</h1>
+      <p class="home-hero-lead">
+        Explore curated yeast display experiments to study TCR specificity, peptide cross-reactivity, enrichment
+        trajectories, and structural context across published peptide-MHC systems.
+      </p>
+      <div class="home-hero-actions">
+        <RouterLink class="btn" to="/experiments">Browse Experiments</RouterLink>
+        <RouterLink class="btn ghost" to="/about">About the Resource</RouterLink>
+      </div>
+    </div>
+
+    <div class="home-hero-panel">
+      <p class="home-hero-label">Explore</p>
+      <ul class="home-hero-list">
+        <li>Round-by-round peptide enrichment</li>
+        <li>Sequence motifs and MHC ligand logos</li>
+        <li>Cross-experiment comparison views</li>
+        <li>Selected 3D protein complex structures</li>
+      </ul>
+    </div>
   </section>
 
   <section v-if="loading" class="panel">Loading summary...</section>

@@ -111,6 +111,62 @@ a {
   margin: 0;
 }
 
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.95fr);
+  gap: 1.2rem;
+  align-items: stretch;
+  padding: 1.55rem;
+}
+
+.home-hero-copy {
+  align-self: center;
+}
+
+.home-hero-copy h1 {
+  margin: 0.2rem 0 0.7rem;
+  font-size: clamp(2.1rem, 3vw, 3.25rem);
+  line-height: 1.05;
+}
+
+.home-hero-lead {
+  margin: 0;
+  max-width: 64ch;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1.03rem;
+}
+
+.home-hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.1rem;
+}
+
+.home-hero-panel {
+  border: 1px solid rgba(25, 114, 120, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 243, 234, 0.92) 100%);
+  border-radius: 16px;
+  padding: 1rem 1.05rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.home-hero-label {
+  margin: 0 0 0.7rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.home-hero-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  line-height: 1.75;
+}
+
 .eyebrow {
   margin: 0;
   color: var(--brand);
@@ -704,6 +760,11 @@ th {
 }
 
 @media (max-width: 700px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    padding: 1.15rem;
+  }
+
   .about-hero {
     grid-template-columns: 1fr;
     padding: 1.1rem;
