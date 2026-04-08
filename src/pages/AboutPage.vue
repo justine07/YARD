@@ -66,7 +66,9 @@
         <p>
           For scientific questions, please refer to the corresponding publication for each experiment. For database or
           website-related issues, contact
-          <a href="mailto:yuzhu.chen@imm.ox.ac.uk">yuzhu.chen@imm.ox.ac.uk</a>.
+          <a href="mailto:hashem.koohy@rdm.ox.ac.uk">Prof. Hashem Koohy</a>
+          or
+          <a href="mailto:yuzhu.chen@imm.ox.ac.uk">Yuzhu Chen</a>.
         </p>
       </article>
     </section>

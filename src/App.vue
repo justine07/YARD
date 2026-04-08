@@ -21,7 +21,10 @@
       <div class="container footer-inner">
         <div>
           <p>&copy; 2026 TCR-pMHC Interaction Database.</p>
-          <p class="subtle">Generated for academic research. Contact: yuzhu.chen@imm.ox.ac.uk</p>
+          <p class="subtle">
+            Generated for academic research. Contacts: Prof. Hashem Koohy (hashem.koohy@rdm.ox.ac.uk),
+            Yuzhu Chen (yuzhu.chen@imm.ox.ac.uk)
+          </p>
         </div>
         <div class="footer-links">
           <RouterLink to="/data">Data</RouterLink>
